@@ -39,13 +39,13 @@ class PubspecBuilder implements Builder {
     |const String version = r\'${version.toString()}\';
     |
     |/// The major version number: "1" in "1.2.3".
-    |const int major  = ${version.major.toString()};
+    |const int major = ${version.major.toString()};
     |
     |/// The minor version number: "2" in "1.2.3".
-    |const int minor  = ${version.minor.toString()};
+    |const int minor = ${version.minor.toString()};
     |
     |/// The patch version number: "3" in "1.2.3".
-    |const int patch  = ${version.patch.toString()};
+    |const int patch = ${version.patch.toString()};
     |
     |/// The pre-release identifier: "foo" in "1.2.3-foo".
     |const List<String> pre = <String>[${version.preRelease.map((dynamic v) => 'r\'$v\'').join(',')}];
@@ -57,6 +57,4 @@ class PubspecBuilder implements Builder {
     '''.multiline() + _pubspec.toString();
     return content;
   }
-
-
-} 
+}
