@@ -69,12 +69,12 @@ class PubspecYaml {
 
   static String _valueToString(dynamic content, [int padding = 0, bool isRootMap = false]) {
     String s = '';
-    padding = padding.clamp(0, 4).toInt();
+    padding = padding.clamp(0, 8).toInt();
     if (content is MapEntry<String, dynamic>) {
       s += ' ' * padding + '\'${content.key}\': ${_valueToString(content.value, padding + 2)}\n';
     } else if (content is Map<String, dynamic>) {
       s += '<String, dynamic>{\n';  
-      content.entries.forEach((value) {
+      content.entries.forEach((MapEntry<String, dynamic> value) {
         s += _valueToString(value, padding + 2);
       });
       s += (' ' * (padding - 2)) + '}' + (isRootMap ? ';' : ',');
@@ -84,14 +84,16 @@ class PubspecYaml {
         s += _valueToString(value, padding + 2) + ',\n';
       });
       s += (' ' * (padding - 2)) + '],';
+    } else if (content is num) {
+      return '${content.toString()},';
     } else {
-      return '\'${content.toString().replaceAll('\n', '\\n')}\',';
+      return 'r\'${content.toString().replaceAll('\n', '\\n')}\',';
     }
     return s;
   }
 
   @override
   String toString() => 
-  '/// Pubspec.yaml as Map<String, dynamic>\n'
+  '/// Get pubspec.yaml as Map<String, dynamic>\n'
   'const Map<String, dynamic> pubspec = ${_valueToString(source, 0, true)}';
 }

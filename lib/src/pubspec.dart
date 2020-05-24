@@ -48,10 +48,10 @@ class PubspecBuilder implements Builder {
     |const int patch  = ${version.patch.toString()};
     |
     |/// The pre-release identifier: "foo" in "1.2.3-foo".
-    |const List<String> preRelease = <String>[${version.preRelease.map((dynamic v) => '\'$v\'').join(',')}];
+    |const List<String> pre = <String>[${version.preRelease.map((dynamic v) => 'r\'$v\'').join(',')}];
     |
     |/// The build identifier: "foo" in "1.2.3+foo".
-    |const List<String> build = <String>[${version.build.map((dynamic v) => '\'$v\'').join(',')}];
+    |const List<String> build = <String>[${version.build.map((dynamic v) => 'r\'$v\'').join(',')}];
     |
     |
     '''.multiline() + _pubspec.toString();
