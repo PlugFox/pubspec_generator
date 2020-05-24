@@ -34,6 +34,9 @@ const List<String> pre = <String>[];
 /// The build identifier: "foo" in "1.2.3+foo".
 const List<String> build = <String>[];
 
+/// Build date in Unix Time
+const int date = 1590350655;
+
 /// Get pubspec.yaml as Map<String, dynamic>
 const Map<String, dynamic> pubspec = <String, dynamic>{
   'name': r'playground',
@@ -41,6 +44,7 @@ const Map<String, dynamic> pubspec = <String, dynamic>{
   'version': r'0.0.1',
   'author': r'Plague Fox <Plugfox@gmail.com>',
   'homepage': r'https://github.com/plugfox/',
+  'publish_to': r'none',
   'environment': <String, dynamic>{
       'sdk': r'>=2.6.0 <3.0.0',
   },
@@ -50,16 +54,9 @@ const Map<String, dynamic> pubspec = <String, dynamic>{
   'dev_dependencies': <String, dynamic>{
       'test': r'any',
       'build_runner': r'>=1.0.0 <2.0.0',
-      'pubspec_generator': r'any',
+      'build_web_compilers': r'>=2.6.1 <3.0.0',
+      'pubspec_generator': r'>=1.0.0 <2.0.0',
   },
-  'dependency_overrides': <String, dynamic>{
-      'pubspec_generator': <String, dynamic>{
-        'path': r'E:\git\dart\pubspec_generator',
-        'version': r'0.0.7',
-      },
-  },
-  'custom_string': r'hello world',
-  'custom_num': 0.12345,
 };
 ```
   
