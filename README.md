@@ -1,6 +1,8 @@
-# pubspec_generator
-
-Add the following lines to the pubspec.yaml:
+# pubspec_generator  
+  
+### Code generator pubspec.yaml.g.dart from pubspec.yaml  
+  
+Add the following lines to the pubspec.yaml:  
 ```yaml
 dev_dependencies:
   build_runner: '>=1.0.0 <2.0.0'
@@ -13,7 +15,9 @@ dependency_overrides:
       ref: 'master'
 ```
   
-and then execute in the console:
+and then execute in the console:  
 ```bash
 pub run build_runner build
 ```
+  
+  
