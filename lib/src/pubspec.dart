@@ -17,12 +17,16 @@ class PubspecBuilder implements Builder {
 
     if (inputId.path.trim().toLowerCase() != 'pubspec.yaml') return;
 
+    log.info('Found \'pubspec.yaml\'');
+
     // Create a new target `AssetId` based on the old one.
     final AssetId copy = AssetId(inputId.package, 'lib/src/${inputId.path}.g.dart');
-    final String content = await buildStep.readAsString(inputId);
-
+    final String content = await buildStep.readAsString(inputId).then(_generate);
+    
     // Write out the new asset.
-    await buildStep.writeAsString(copy, _generate(content));
+    await buildStep.writeAsString(copy, content);
+
+    log.fine('File \'lib/src/${inputId.path}.g.dart\' generated.');
   }
 
   @override
