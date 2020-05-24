@@ -1,0 +1,14 @@
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+builders:
+  # name of the builder
+  pubspec:
+    # library URI containing the builder - maps to `lib/member_count_library_generator.dart`
+    import: "package:pubspec_generator/builder.dart"
+    # Name of the function in the above library to call.
+    builder_factories: ["pubspecBuilder"]
+    # The mapping from the source extension to the generated file extension
+    build_extensions: {"pubspec.yaml": ["lib/src/pubspec.yaml.g.dart"]}
+    # Generate the output directly into the package, not to a hidden cache dir
+    build_to: source
+    # Will automatically run on any package that depends on it
+    auto_apply: root_package
