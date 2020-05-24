@@ -55,6 +55,9 @@ class PubspecBuilder implements Builder {
     |/// The build identifier: "foo" in "1.2.3+foo".
     |const List<String> build = <String>[${version.build.map((dynamic v) => 'r\'$v\'').join(',')}];
     |
+    |/// Build date in Unix Time
+    |const int date = ${DateTime.now().millisecondsSinceEpoch ~/ 1000};
+    |
     |
     '''
             .multiline() +
