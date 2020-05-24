@@ -2,7 +2,6 @@ import 'package:yaml/yaml.dart';
 
 /// Pubspec model
 class PubspecYaml {
-
   /// name
   final String name;
 
@@ -25,10 +24,9 @@ class PubspecYaml {
   final Map<String, dynamic> source;
 
   /// Factory
-  factory PubspecYaml.fromString(String yaml) 
-  {
-    final YamlDocument doc = loadYamlDocument(yaml, sourceUrl: 'pubspec.yaml');
-    final Map<String, dynamic> content = _contentToMap(doc.contents) as Map<String, dynamic>;
+  factory PubspecYaml.fromString(String yaml) {
+    final doc = loadYamlDocument(yaml, sourceUrl: 'pubspec.yaml');
+    final content = _contentToMap(doc.contents) as Map<String, dynamic>;
     return PubspecYaml._(
       (content['name'] ?? '') as String,
       (content['description'] ?? '') as String,
@@ -52,13 +50,13 @@ class PubspecYaml {
 
   static dynamic _contentToMap(dynamic content) {
     if (content is YamlMap) {
-      final Map<String, dynamic> map = <String, dynamic>{};
+      final map = <String, dynamic>{};
       content.forEach((dynamic key, dynamic value) {
         map[key as String] = _contentToMap(value);
       });
       return map;
     } else if (content is YamlList) {
-      final List<dynamic> list = <dynamic>[];
+      final list = <dynamic>[];
       content.forEach((dynamic value) {
         list.add(_contentToMap(value));
       });
@@ -67,13 +65,15 @@ class PubspecYaml {
     return content;
   }
 
-  static String _valueToString(dynamic content, [int padding = 0, bool isRootMap = false]) {
-    String s = '';
+  static String _valueToString(dynamic content,
+      [int padding = 0, bool isRootMap = false]) {
+    var s = '';
     padding = padding.clamp(0, 8).toInt();
     if (content is MapEntry<String, dynamic>) {
-      s += ' ' * padding + '\'${content.key}\': ${_valueToString(content.value, padding + 2)}\n';
+      s += ' ' * padding +
+          '\'${content.key}\': ${_valueToString(content.value, padding + 2)}\n';
     } else if (content is Map<String, dynamic>) {
-      s += '<String, dynamic>{\n';  
+      s += '<String, dynamic>{\n';
       content.entries.forEach((MapEntry<String, dynamic> value) {
         s += _valueToString(value, padding + 2);
       });
@@ -93,7 +93,6 @@ class PubspecYaml {
   }
 
   @override
-  String toString() => 
-  '/// Get pubspec.yaml as Map<String, dynamic>\n'
-  'const Map<String, dynamic> pubspec = ${_valueToString(source, 0, true)}';
+  String toString() => '/// Get pubspec.yaml as Map<String, dynamic>\n'
+      'const Map<String, dynamic> pubspec = ${_valueToString(source, 0, true)}';
 }

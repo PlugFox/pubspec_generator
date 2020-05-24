@@ -1,4 +1,3 @@
-
 import 'dart:async';
 
 import 'package:pub_semver/pub_semver.dart' as ver;
@@ -11,18 +10,17 @@ import 'model.dart';
 class PubspecBuilder implements Builder {
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-
     // Each `buildStep` has a single input.
-    final AssetId inputId = buildStep.inputId;
+    final inputId = buildStep.inputId;
 
     if (inputId.path.trim().toLowerCase() != 'pubspec.yaml') return;
 
     log.info('Found \'pubspec.yaml\'');
 
     // Create a new target `AssetId` based on the old one.
-    final AssetId copy = AssetId(inputId.package, 'lib/src/${inputId.path}.g.dart');
-    final String content = await buildStep.readAsString(inputId).then(_generate);
-    
+    final copy = AssetId(inputId.package, 'lib/src/${inputId.path}.g.dart');
+    final content = await buildStep.readAsString(inputId).then(_generate);
+
     // Write out the new asset.
     await buildStep.writeAsString(copy, content);
 
@@ -31,14 +29,14 @@ class PubspecBuilder implements Builder {
 
   @override
   final Map<String, List<String>> buildExtensions =
-    const <String, List<String>>{
-      'pubspec.yaml': <String>['lib/src/pubspec.yaml.g.dart']
-    };
+      const <String, List<String>>{
+    'pubspec.yaml': <String>['lib/src/pubspec.yaml.g.dart']
+  };
 
   String _generate(String content) {
-    final PubspecYaml _pubspec = PubspecYaml.fromString(content);
-    final ver.Version version = ver.Version.parse(_pubspec.version);
-    content =  '''
+    final _pubspec = PubspecYaml.fromString(content);
+    final version = ver.Version.parse(_pubspec.version);
+    content = '''
     |/// Current app version
     |const String version = r\'${version.toString()}\';
     |
@@ -58,7 +56,9 @@ class PubspecBuilder implements Builder {
     |const List<String> build = <String>[${version.build.map((dynamic v) => 'r\'$v\'').join(',')}];
     |
     |
-    '''.multiline() + _pubspec.toString();
+    '''
+            .multiline() +
+        _pubspec.toString();
     return content;
   }
 }

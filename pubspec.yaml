@@ -1,10 +1,11 @@
 name: pubspec_generator
-description: Code generator pubspec.yaml.g.dart from pubspec.yaml
-version: 0.0.7
+description: >
+  Code generator pubspec.yaml.g.dart from pubspec.yaml
+  Just import `pubspec_generator`
+  and then run `pub run build_runner build`
+version: 1.0.0
 author: Plague Fox <Plugfox@gmail.com>
 homepage: https://github.com/plugfox/pubspec_generator
-
-#publish_to: 'none' 
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
@@ -16,5 +17,6 @@ dependencies:
   pub_semver: '>=1.4.3 <2.0.0'
 
 dev_dependencies:
+  pedantic: '>=1.0.0 <2.0.0'
   build_test: '>=1.0.0 <2.0.0'
   test: '>=1.0.0 <2.0.0'
