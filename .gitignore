@@ -5,3 +5,4 @@ pubspec.lock
 **.g.dart
 .dart_tool
 doc/
+.idea/

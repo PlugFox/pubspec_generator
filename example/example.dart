@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_raw_strings
+
 /// Current app version
 const String version = r'0.0.1';
 
