@@ -1,4 +1,4 @@
-# 2.0.0-dev - 2020-08-29    
+# 2.0.0 - 2020-08-29    
 ### Added    
 - Ignore raw string comment
 
