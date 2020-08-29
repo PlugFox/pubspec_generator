@@ -1,3 +1,8 @@
+// ignore_for_file: avoid_annotating_with_dynamic
+// ignore_for_file: avoid_annotating_with_dynamic
+// ignore_for_file: avoid_escaping_inner_quotes
+// ignore_for_file: avoid_function_literals_in_foreach_calls
+
 import 'package:yaml/yaml.dart';
 
 /// Pubspec model
@@ -65,31 +70,34 @@ class PubspecYaml {
     return content;
   }
 
-  static String _valueToString(dynamic content,
-      [int padding = 0, bool isRootMap = false]) {
-    var s = '';
-    padding = padding.clamp(0, 8).toInt();
+  static String _valueToString(
+    dynamic content, [
+    int padding = 0,
+    bool isRootMap = false,
+  ]) {
+    final builder = StringBuffer('');
+    final clampPadding = padding.clamp(0, 8).toInt();
     if (content is MapEntry<String, dynamic>) {
-      s += ' ' * padding +
-          '\'${content.key}\': ${_valueToString(content.value, padding + 2)}\n';
+      builder.write('${' ' * clampPadding}${'\'${content.key}\': '
+          ' ${_valueToString(content.value, clampPadding + 2)}\n'}');
     } else if (content is Map<String, dynamic>) {
-      s += '<String, dynamic>{\n';
-      content.entries.forEach((MapEntry<String, dynamic> value) {
-        s += _valueToString(value, padding + 2);
+      builder.writeln('<String, dynamic>{');
+      content.entries.forEach((value) {
+        builder.write(_valueToString(value, clampPadding + 2));
       });
-      s += (' ' * (padding - 2)) + '}' + (isRootMap ? ';' : ',');
+      builder.write('${' ' * (clampPadding - 2)}}${isRootMap ? ';' : ','}');
     } else if (content is List<dynamic>) {
-      s += '<dynamic>[\n';
+      builder.writeln('<dynamic>[');
       content.forEach((dynamic value) {
-        s += _valueToString(value, padding + 2) + ',\n';
+        builder.writeln('${_valueToString(value, clampPadding + 2)},');
       });
-      s += (' ' * (padding - 2)) + '],';
+      builder.write('${' ' * (clampPadding - 2)}],');
     } else if (content is num) {
       return '${content.toString()},';
     } else {
-      return 'r\'${content.toString().replaceAll('\n', '\\n')}\',';
+      return 'r\'${content.toString().replaceAll('\n', r'\n')}\',';
     }
-    return s;
+    return builder.toString();
   }
 
   @override

@@ -1,0 +1,21 @@
+name: pubspec_generator
+on:
+  push:
+    branches: [ master, dev ]
+  pull_request:
+    branches: [ master, dev ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: google/dart:latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install Dependencies
+        run: pub get
+      - name: Format
+        run: dartfmt --dry-run --set-exit-if-changed lib example test
+      - name: Run analyzer
+        run: dartanalyzer --fatal-infos --fatal-warnings lib example test
+      - name: Run tests
+        run: pub run test test/pubspec_generator_test.dart --concurrency=6

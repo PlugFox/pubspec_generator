@@ -1,6 +1,12 @@
 # pubspec_generator  
   
-### Code generator pubspec.yaml.g.dart from pubspec.yaml  
+[![Actions Status](https://github.com/PlugFox/pubspec_generator/workflows/pubspec_generator/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions)
+[![Pub](https://img.shields.io/pub/v/pubspec_generator.svg)](https://pub.dev/packages/pubspec_generator)
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](https://en.wikipedia.org/wiki/WTFPL)
+[![effective_dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+  
+  
+## Code generator pubspec.yaml.g.dart from pubspec.yaml  
   
 Add the following lines to the pubspec.yaml:  
 ```yaml
@@ -14,8 +20,13 @@ and then execute in the console:
 pub run build_runner build
 ```
   
-### Result example:  
+## Result example  
+  
+At project path `lib/src/constants/pubspec.yaml.g.dart`:  
+  
 ```dart
+// ignore_for_file: unnecessary_raw_strings
+
 /// Current app version
 const String version = r'0.0.1';
 
@@ -59,4 +70,19 @@ const Map<String, dynamic> pubspec = <String, dynamic>{
   },
 };
 ```
+  
+## Changelog  
+  
+Refer to the [Changelog](https://github.com/plugfox/pubspec_generator/blob/master/CHANGELOG.md) to get all release notes.  
+  
+  
+## Maintainers  
+  
+[Plague Fox](https://plugfox.dev)  
+  
+  
+## License  
+  
+[WTFPL](https://github.com/plugfox/pubspec_generator/blob/master/LICENSE)  
+  
   
