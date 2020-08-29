@@ -7,6 +7,9 @@ import 'package:build/build.dart';
 
 import 'model.dart';
 
+/// Pubspec builder
+Builder pubspecBuilder(BuilderOptions options) => PubspecBuilder();
+
 /// Builder
 class PubspecBuilder implements Builder {
   @override
