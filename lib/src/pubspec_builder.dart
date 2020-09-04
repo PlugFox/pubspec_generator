@@ -44,7 +44,7 @@ class PubspecBuilder implements Builder {
     final builder = StringBuffer('// ignore_for_file: unnecessary_raw_strings')
       ..writeln()
       ..writeln('/// Current app version')
-      ..writeln('const String version = r\'${version.toString()}\'')
+      ..writeln('const String version = r\'${version.toString()}\';')
       ..writeln()
       ..writeln('/// The major version number: "1" in "1.2.3".')
       ..writeln('const int major = ${version.major.toString()};')
