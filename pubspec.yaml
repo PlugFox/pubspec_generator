@@ -3,21 +3,22 @@ description: >
   Code generator pubspec.yaml.g.dart from pubspec.yaml
   Just import `pubspec_generator`
   and then run `pub run build_runner build`
-version: 2.0.1
+version: 2.1.1-dev
 repository: https://github.com/PlugFox/pubspec_generator/tree/master
 issue_tracker: https://github.com/PlugFox/pubspec_generator/issues
 homepage: https://github.com/PlugFox/pubspec_generator
 #author: Plague Fox <plugfox@gmail.com>
 
 environment:
-  sdk: ">=2.6.0 <3.0.0"
+  sdk: '>=2.6.0 <3.0.0'
 
 dependencies:
-  build: '>=1.0.0 <2.0.0'
-  yaml: '>=2.2.0 <3.0.0'
-  pub_semver: '>=1.4.3 <2.0.0'
+  build: ^1.0.0
+  yaml: ^2.2.0
+  pub_semver: ^1.4.3
 
 dev_dependencies:
-  pedantic: '>=1.0.0 <2.0.0'
-  build_test: '>=1.0.0 <2.0.0'
-  test: '>=1.0.0 <2.0.0'
+  build_runner_core: ^5.0.0
+  build_runner: ^1.9.0
+  build_test: ^1.2.2
+  test: ^1.15.4

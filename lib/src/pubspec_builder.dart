@@ -8,10 +8,25 @@ import 'package:build/build.dart';
 import 'model.dart';
 
 /// Pubspec builder
-Builder pubspecBuilder(BuilderOptions options) => PubspecBuilder();
+Builder pubspecBuilder(BuilderOptions options) => PubspecBuilder(options);
 
 /// Builder
 class PubspecBuilder implements Builder {
+  @override
+  final Map<String, List<String>> buildExtensions;
+  final BuilderOptions _options;
+  final String _output;
+
+  /// PubspecBuilder constructor with BuilderOptions
+  PubspecBuilder(BuilderOptions options)
+      : _options = options,
+        _output = options.config['output'].toString() ??
+            'lib/src/constants/pubspec.yaml.g.dart',
+        buildExtensions = <String, List<String>>{} {
+    buildExtensions['pubspec.yaml'] = <String>[_output];
+    print('output: $_output');
+  }
+
   @override
   FutureOr<void> build(BuildStep buildStep) async {
     // Each `buildStep` has a single input.
@@ -22,25 +37,23 @@ class PubspecBuilder implements Builder {
     log.info('Found \'pubspec.yaml\'');
 
     // Create a new target `AssetId` based on the old one.
-    final copy =
-        AssetId(inputId.package, 'lib/src/constants/${inputId.path}.g.dart');
+    final copy = AssetId(inputId.package, _output);
     final content = await buildStep.readAsString(inputId).then(_generate);
 
     // Write out the new asset.
     await buildStep.writeAsString(copy, content);
 
-    log.fine('File \'lib/src/constants/${inputId.path}.g.dart\' generated.');
+    log.fine('File \'$_output\' generated.');
   }
-
-  @override
-  final Map<String, List<String>> buildExtensions =
-      const <String, List<String>>{
-    'pubspec.yaml': <String>['lib/src/constants/pubspec.yaml.g.dart']
-  };
 
   String _generate(String content) {
     final pubspec = PubspecYaml.fromString(content);
-    final version = ver.Version.parse(pubspec.version);
+    ver.Version version;
+    try {
+      version = ver.Version.parse(pubspec.version);
+    } on dynamic catch (_) {
+      version = ver.Version(0, 0, 0);
+    }
     final builder = StringBuffer('// ignore_for_file: unnecessary_raw_strings')
       ..writeln()
       ..writeln('/// Current app version')

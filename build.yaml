@@ -1,7 +1,18 @@
 # Read about `build.yaml` at https://pub.dev/packages/build_config
+targets:
+  $default:
+    sources:
+      - $package$
+      - lib/**
+      - pubspec.yaml
+    builders:
+      pubspec_generator:
+        options:
+          output: lib/src/constants/pubspec.yaml.g.dart
+
 builders:
   # name of the builder
-  pubspec:
+  pubspec_generator:
     # library URI containing the builder - maps to `lib/member_count_library_generator.dart`
     import: "package:pubspec_generator/builder.dart"
     # Name of the function in the above library to call.

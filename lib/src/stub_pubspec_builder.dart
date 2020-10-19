@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors, avoid_annotating_with_dynamic
+import 'dart:async';
+
+import 'package:build/build.dart';
 
 /// Pubspec builder
-dynamic pubspecBuilder(dynamic options) => PubspecBuilder();
-
-/// Stub class
-class PubspecBuilder {
-  /// Stub class
-  const PubspecBuilder();
-}
+Builder pubspecBuilder(BuilderOptions options) => throw UnimplementedError();

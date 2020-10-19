@@ -89,7 +89,7 @@ class PubspecYaml {
     } else if (content is List<dynamic>) {
       builder.writeln('<dynamic>[');
       content.forEach((dynamic value) {
-        builder.writeln('${_valueToString(value, clampPadding + 2)},');
+        builder.writeln(_valueToString(value, clampPadding + 2));
       });
       builder.write('${' ' * (clampPadding - 2)}],');
     } else if (content is num) {

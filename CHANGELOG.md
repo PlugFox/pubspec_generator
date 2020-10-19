@@ -1,3 +1,9 @@
+## 2.1.1-dev - 2020-10-19  
+### Added  
+- Option with output destination  
+### Fixed  
+- Yaml list value with extra comma  
+
 ## 2.0.1 - 2020-09-06
 ### Fixed
 - Fix missing semicolon
