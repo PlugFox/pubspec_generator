@@ -1,5 +1,4 @@
 // ignore_for_file: prefer_const_constructors, avoid_annotating_with_dynamic
-import 'dart:async';
 
 import 'package:build/build.dart';
 

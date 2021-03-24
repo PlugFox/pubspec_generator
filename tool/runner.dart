@@ -1,3 +1,5 @@
+// @dart=2.11
+
 import 'dart:async';
 import 'dart:io' as io;
 
@@ -10,7 +12,7 @@ void main(List<String> args) => runZoned(
       () async {
         final result = await runner.run(
           <String>{
-            ...args ?? <String>[],
+            ...args,
             'build',
             '--delete-conflicting-outputs',
           }.toList(growable: false),
@@ -22,6 +24,10 @@ void main(List<String> args) => runZoned(
               ],
               core.toRoot(),
               hideOutput: false,
+              defaultDevOptions: const build.BuilderOptions(
+                <String, dynamic>{'output': 'example/example.dart'},
+                isRoot: true,
+              ),
             ),
           ],
         );

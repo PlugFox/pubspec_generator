@@ -2,8 +2,8 @@
 
 import 'dart:async';
 
-import 'package:pub_semver/pub_semver.dart' as ver;
 import 'package:build/build.dart';
+import 'package:pub_semver/pub_semver.dart' as ver;
 
 import 'model.dart';
 
@@ -15,16 +15,14 @@ class PubspecBuilder implements Builder {
   @override
   final Map<String, List<String>> buildExtensions;
   final BuilderOptions _options;
-  final String _output;
+  String get _output => _options.config['output'].toString();
 
   /// PubspecBuilder constructor with BuilderOptions
   PubspecBuilder(BuilderOptions options)
       : _options = options,
-        _output = options.config['output'].toString() ??
-            'lib/src/constants/pubspec.yaml.g.dart',
         buildExtensions = <String, List<String>>{} {
     buildExtensions['pubspec.yaml'] = <String>[_output];
-    print('output: $_output');
+    log.config('output: $_output');
   }
 
   @override
@@ -51,10 +49,11 @@ class PubspecBuilder implements Builder {
     ver.Version version;
     try {
       version = ver.Version.parse(pubspec.version);
-    } on dynamic catch (_) {
+    } on Object {
       version = ver.Version(0, 0, 0);
     }
     final builder = StringBuffer('// ignore_for_file: unnecessary_raw_strings')
+      ..writeln()
       ..writeln()
       ..writeln('/// Current app version')
       ..writeln('const String version = r\'${version.toString()}\';')

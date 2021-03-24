@@ -1,3 +1,7 @@
+## 3.0.0-nullsafety.0 - 2021-03-24
+### Changed
+- Non nullable support
+
 ## 2.1.1-dev - 2020-10-19  
 ### Added  
 - Option with output destination  

@@ -1,5 +1,4 @@
 // ignore_for_file: avoid_annotating_with_dynamic
-// ignore_for_file: avoid_annotating_with_dynamic
 // ignore_for_file: avoid_escaping_inner_quotes
 // ignore_for_file: avoid_function_literals_in_foreach_calls
 
@@ -30,7 +29,10 @@ class PubspecYaml {
 
   /// Factory
   factory PubspecYaml.fromString(String yaml) {
-    final doc = loadYamlDocument(yaml, sourceUrl: 'pubspec.yaml');
+    final doc = loadYamlDocument(
+      yaml,
+      sourceUrl: Uri.file('pubspec.yaml'),
+    );
     final content = _contentToMap(doc.contents) as Map<String, dynamic>;
     return PubspecYaml._(
       (content['name'] ?? '') as String,
@@ -39,7 +41,7 @@ class PubspecYaml {
       (content['author'] ?? '') as String,
       (content['homepage'] ?? '') as String,
       (content['repository'] ?? '') as String,
-      content ?? <String, dynamic>{},
+      content,
     );
   }
 
@@ -81,13 +83,13 @@ class PubspecYaml {
       builder.write('${' ' * clampPadding}${'\'${content.key}\': '
           ' ${_valueToString(content.value, clampPadding + 2)}\n'}');
     } else if (content is Map<String, dynamic>) {
-      builder.writeln('<String, dynamic>{');
+      builder.writeln('<String, Object>{');
       content.entries.forEach((value) {
         builder.write(_valueToString(value, clampPadding + 2));
       });
       builder.write('${' ' * (clampPadding - 2)}}${isRootMap ? ';' : ','}');
     } else if (content is List<dynamic>) {
-      builder.writeln('<dynamic>[');
+      builder.writeln('<Object>[');
       content.forEach((dynamic value) {
         builder.writeln(_valueToString(value, clampPadding + 2));
       });
@@ -101,6 +103,6 @@ class PubspecYaml {
   }
 
   @override
-  String toString() => '/// Get pubspec.yaml as Map<String, dynamic>\n'
-      'const Map<String, dynamic> pubspec = ${_valueToString(source, 0, true)}';
+  String toString() => '/// Get pubspec.yaml as Map<String, Object>\n'
+      'const Map<String, Object> pubspec = ${_valueToString(source, 0, true)}';
 }
