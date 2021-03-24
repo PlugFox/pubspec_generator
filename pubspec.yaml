@@ -2,7 +2,7 @@ name: pubspec_generator
 description: >
   Code generator pubspec.yaml.g.dart from pubspec.yaml.
   Just import `pubspec_generator` and then run `dart run build_runner build`
-version: 3.0.0-nullsafety.0
+version: 3.0.0-nullsafety.1
 repository: https://github.com/PlugFox/pubspec_generator/tree/master
 issue_tracker: https://github.com/PlugFox/pubspec_generator/issues
 homepage: https://github.com/PlugFox/pubspec_generator

@@ -24,6 +24,9 @@
    
  */
 
+// The pubspec file:
+// https://dart.dev/tools/pub/pubspec
+
 // ignore_for_file: lines_longer_than_80_chars
 // ignore_for_file: unnecessary_raw_strings
 // ignore_for_file: use_raw_strings
@@ -31,7 +34,7 @@
 // ignore_for_file: prefer_single_quotes
 
 /// Current app version
-const String version = r'3.0.0-nullsafety.0';
+const String version = r'3.0.0-nullsafety.1';
 
 /// The major version number: "1" in "1.2.3".
 const int major = 3;
@@ -43,13 +46,13 @@ const int minor = 0;
 const int patch = 0;
 
 /// The pre-release identifier: "foo" in "1.2.3-foo".
-const List<String> pre = <String>[r'nullsafety', r'0'];
+const List<String> pre = <String>[r'nullsafety', r'1'];
 
 /// The build identifier: "foo" in "1.2.3+foo".
 const List<String> build = <String>[];
 
 /// Build date in Unix Time (in seconds)
-const int timestamp = 1616624182;
+const int timestamp = 1616627709;
 
 /// Name [name]
 const String name = r'pubspec_generator';

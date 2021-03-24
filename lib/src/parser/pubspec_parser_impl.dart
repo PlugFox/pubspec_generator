@@ -47,7 +47,7 @@ class PubspecParserImpl extends PubspecParser {
       return _removeInvalidNodesFromMap(value);
     } else if (value is List) {
       return _removeInvalidElementsFromList(value);
-    } else if (value is num || value is String) {
+    } else if (value is num || value is String || value is bool) {
       return value;
     } else {
       throw FormatException(
