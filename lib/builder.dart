@@ -1,3 +1,5 @@
+// @dart=2.12
+
 library pubspec_generator.build;
 
 export 'src/stub_pubspec_builder.dart'
