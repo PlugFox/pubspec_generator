@@ -7,8 +7,6 @@ import 'representation.dart';
 mixin SourceGeneratorMixin on PubspecGenerator {
   @override
   Iterable<String> generate(Map<String, Object> data) sync* {
-    /// TODO: формировать хэштаблицу ссылаясь на уже сгенерированные константы
-    /// для типовых полей, вместо того, чтоб генерировать с нуля
     final buffer = StringBuffer()
       ..writeln('/// Source data from pubspec.yaml')
       ..writeln('const Map<String, Object> source = <String, Object>{');
