@@ -1,8 +1,5 @@
 library pubspec_generator.build;
 
-import 'package:build/build.dart' show Builder, BuilderOptions;
-
-import 'src/pubspec.dart';
-
-/// pubspec builder
-Builder pubspecBuilder(BuilderOptions options) => PubspecBuilder();
+export 'src/stub_pubspec_builder.dart'
+    // ignore: uri_does_not_exist
+    if (dart.library.io) 'src/pubspec_builder.dart';
