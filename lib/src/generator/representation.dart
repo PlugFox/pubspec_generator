@@ -48,7 +48,7 @@ String representation({
         ..write('r\'')
         ..write(object.replaceAll('\r', r'\r').replaceAll('\n', r'\n'))
         ..write('\'');
-    } else if (object is num) {
+    } else if (object is num || object is bool) {
       buffer.write(object.toString());
     } else if (object == null) {
       buffer.write('null');

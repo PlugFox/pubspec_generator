@@ -7,6 +7,9 @@ mixin HeaderGeneratorMixin on PubspecGenerator {
   @override
   Iterable<String> generate(Map<String, Object> pubspec) sync* {
     yield _mitLicense;
+    yield '// The pubspec file:';
+    yield '// https://dart.dev/tools/pub/pubspec';
+    yield '';
     yield* super.generate(pubspec);
   }
 }
