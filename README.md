@@ -1,4 +1,5 @@
 # pubspec_generator  
+##### Code generator pubspec.yaml.g.dart from pubspec.yaml  
   
 [![Actions Status](https://github.com/PlugFox/pubspec_generator/workflows/pubspec_generator/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions)
 [![Pub](https://img.shields.io/pub/v/pubspec_generator.svg)](https://pub.dev/packages/pubspec_generator)
@@ -13,70 +14,130 @@
 -->
   
   
-## Code generator pubspec.yaml.g.dart from pubspec.yaml  
+## Setup  
   
 Add the following lines to the pubspec.yaml:  
 ```yaml
 dev_dependencies:
-  build_runner: '>=1.0.0 <2.0.0'
-  pubspec_generator: '>=1.0.0 <2.0.0'
+  build_runner: ^1.12.2
+  pubspec_generator: ^3.0.0
 ```
   
 and then execute in the console:  
 ```bash
-pub run build_runner build
+dart run build_runner build
 ```
+  
+  
+## Path of creation  
+
+Create `build.yaml` at project root (near with `pubspec.yaml`).  
+And set output path:
+```yaml
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+targets:
+  $default:
+    sources:
+      - $package$
+      - lib/**
+      - pubspec.yaml
+    builders:
+      pubspec_generator:
+        options:
+          output: lib/src/constants/pubspec.yaml.g.dart
+```
+  
   
 ## Result example  
   
-At project path `lib/src/constants/pubspec.yaml.g.dart`:  
+By default, at project path `lib/src/constants/pubspec.yaml.g.dart`:  
   
 ```dart
-// ignore_for_file: unnecessary_raw_strings
-
 /// Current app version
-const String version = r'0.0.1';
+const String version = r'3.0.0-nullsafety.0';
 
 /// The major version number: "1" in "1.2.3".
-const int major = 0;
+const int major = 3;
 
 /// The minor version number: "2" in "1.2.3".
 const int minor = 0;
 
 /// The patch version number: "3" in "1.2.3".
-const int patch = 1;
+const int patch = 0;
 
 /// The pre-release identifier: "foo" in "1.2.3-foo".
-const List<String> pre = <String>[];
+const List<String> pre = <String>[r'nullsafety', r'0'];
 
 /// The build identifier: "foo" in "1.2.3+foo".
 const List<String> build = <String>[];
 
-/// Build date in Unix Time
-const int date = 1590350655;
+/// Build date in Unix Time (in seconds)
+const int timestamp = 1616624182;
 
-/// Get pubspec.yaml as Map<String, dynamic>
-const Map<String, dynamic> pubspec = <String, dynamic>{
-  'name': r'playground',
-  'description': r'dart playground',
-  'version': r'0.0.1',
-  'author': r'Plague Fox <Plugfox@gmail.com>',
-  'homepage': r'https://github.com/plugfox/',
-  'publish_to': r'none',
-  'environment': <String, dynamic>{
-      'sdk': r'>=2.6.0 <3.0.0',
-  },
-  'dependencies': <String, dynamic>{
-      'meta': r'>=1.0.0 <2.0.0',
-  },
-  'dev_dependencies': <String, dynamic>{
-      'test': r'any',
-      'build_runner': r'>=1.0.0 <2.0.0',
-      'build_web_compilers': r'>=2.6.1 <3.0.0',
-      'pubspec_generator': r'>=1.0.0 <2.0.0',
-  },
+/// Name [name]
+const String name = r'pubspec_generator';
+
+/// Description [description]
+const String description = r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
+
+/// Repository [repository]
+const String repository = r'https://github.com/PlugFox/pubspec_generator/tree/master';
+
+/// Issue tracker [issue_tracker]
+const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
+
+/// Homepage [homepage]
+const String homepage = r'https://github.com/PlugFox/pubspec_generator';
+
+/// Documentation [documentation]
+const String documentation = r'https://github.com/PlugFox/pubspec_generator/tree/master';
+
+/// Publish to [publish_to]
+const String publishTo = r'https://pub.dev/';
+
+/// Environment
+const Map<String, String> environment = <String, String>{
+  'sdk': '>=2.12.0 <3.0.0',
+};
+
+/// Dependencies
+const Map<String, Object> dependencies = <String, Object>{
+  'build': r'^2.0.0',
+  'pub_semver': r'^2.0.0',
+  'yaml': r'^3.0.0',
+};
+
+/// Developer dependencies
+const Map<String, Object> devDependencies = <String, Object>{
+  'build_runner': r'^1.12.2',
+  'build_runner_core': r'^6.0.0',
+  'build_test': r'^2.0.0',
+  'test': r'^1.16.6',
+};
+
+/// Dependency overrides
+const Map<String, Object> dependencyOverrides = <String, Object>{};
+
+/// Executables
+const Map<String, Object> executables = <String, Object>{};
+
+/// Source data from pubspec.yaml
+const Map<String, Object> source = <String, Object>{
+  'name': name,
+  'description': description,
+  'repository': repository,
+  'issue_tracker': issueTracker,
+  'homepage': homepage,
+  'documentation': documentation,
+  'publish_to': publishTo,
+  'version': version,
+  'environment': environment,
+  'dependencies': dependencies,
+  'dev_dependencies': devDependencies,
+  'dependency_overrides': dependencyOverrides,
 };
 ```
+  
   
 ## Changelog  
   
