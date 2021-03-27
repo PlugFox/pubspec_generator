@@ -1,6 +1,12 @@
-## 3.0.0-nullsafety.1 - 2021-03-25
-### Fixed
-- Add Boolean support
+## 3.0.0 - 2021-03-27  
+### Changed  
+- Refactoring  
+- Non nullable support  
+  
+  
+## 3.0.0-nullsafety.1 - 2021-03-25  
+### Fixed  
+- Add Boolean support  
   
   
 ## 3.0.0-nullsafety.0 - 2021-03-25
