@@ -15,6 +15,12 @@ mixin HeaderGeneratorMixin on PubspecGenerator {
 }
 
 final String _mitLicense = '''
+/// GENERATED CODE - DO NOT MODIFY BY HAND
+
+/// ***************************************************************************
+/// *                            pubspec_generator                            * 
+/// ***************************************************************************
+
 /*
   
   MIT License
