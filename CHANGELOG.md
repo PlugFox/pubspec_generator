@@ -1,3 +1,8 @@
+## 3.0.1 - 2021-05-14  
+### Changed  
+- Bump dev_dependencies  
+  
+  
 ## 3.0.0 - 2021-03-27  
 ### Changed  
 - Refactoring  

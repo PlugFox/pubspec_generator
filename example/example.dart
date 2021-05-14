@@ -1,3 +1,9 @@
+/// GENERATED CODE - DO NOT MODIFY BY HAND
+
+/// ***************************************************************************
+/// *                            pubspec_generator                            * 
+/// ***************************************************************************
+
 /*
   
   MIT License
@@ -34,7 +40,7 @@
 // ignore_for_file: prefer_single_quotes
 
 /// Current app version
-const String version = r'3.0.0-nullsafety.1';
+const String version = r'3.0.1';
 
 /// The major version number: "1" in "1.2.3".
 const int major = 3;
@@ -43,16 +49,16 @@ const int major = 3;
 const int minor = 0;
 
 /// The patch version number: "3" in "1.2.3".
-const int patch = 0;
+const int patch = 1;
 
 /// The pre-release identifier: "foo" in "1.2.3-foo".
-const List<String> pre = <String>[r'nullsafety', r'1'];
+const List<String> pre = <String>[];
 
 /// The build identifier: "foo" in "1.2.3+foo".
 const List<String> build = <String>[];
 
 /// Build date in Unix Time (in seconds)
-const int timestamp = 1616627709;
+const int timestamp = 1621020291;
 
 /// Name [name]
 const String name = r'pubspec_generator';
@@ -70,7 +76,7 @@ const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issue
 const String homepage = r'https://github.com/PlugFox/pubspec_generator';
 
 /// Documentation [documentation]
-const String documentation = r'https://github.com/PlugFox/pubspec_generator/tree/master';
+const String documentation = r'';
 
 /// Publish to [publish_to]
 const String publishTo = r'https://pub.dev/';
@@ -89,8 +95,8 @@ const Map<String, Object> dependencies = <String, Object>{
 
 /// Developer dependencies
 const Map<String, Object> devDependencies = <String, Object>{
-  'build_runner': r'^1.12.2',
-  'build_runner_core': r'^6.0.0',
+  'build_runner': r'>=1.12.2 <3.0.0',
+  'build_runner_core': r'>=6.0.0 <7.0.0',
   'build_test': r'^2.0.0',
   'test': r'^1.16.6',
 };
