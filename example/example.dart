@@ -1,25 +1,27 @@
 /// GENERATED CODE - DO NOT MODIFY BY HAND
-library;
+
+library pubspec;
+
 /// ***************************************************************************
-/// *                            pubspec_generator                            * 
+/// *                            pubspec_generator                            *
 /// ***************************************************************************
 
 /*
-  
+
   MIT License
-  
+
   Copyright (c) 2023 Plague Fox
-  
+
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
   in the Software without restriction, including without limitation the rights
   to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
   copies of the Software, and to permit persons to whom the Software is
   furnished to do so, subject to the following conditions:
-  
+
   The above copyright notice and this permission notice shall be included in all
   copies or substantial portions of the Software.
-  
+
   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
   IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
   FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE
@@ -27,7 +29,7 @@ library;
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
-   
+
  */
 
 // The pubspec file:
@@ -40,25 +42,25 @@ library;
 // ignore_for_file: prefer_single_quotes
 
 /// Current app version
-const String version = r'3.0.1';
+const String version = r'3.1.0-pre.1';
 
 /// The major version number: "1" in "1.2.3".
 const int major = 3;
 
 /// The minor version number: "2" in "1.2.3".
-const int minor = 0;
+const int minor = 1;
 
 /// The patch version number: "3" in "1.2.3".
-const int patch = 1;
+const int patch = 0;
 
 /// The pre-release identifier: "foo" in "1.2.3-foo".
-const List<String> pre = <String>[];
+const List<String> pre = <String>[r'pre', r'1'];
 
 /// The build identifier: "foo" in "1.2.3+foo".
 const List<String> build = <String>[];
 
 /// Build date in Unix Time (in seconds)
-const int timestamp = 1688073127;
+const int timestamp = 1688106185;
 
 /// Name [name]
 const String name = r'pubspec_generator';
@@ -83,22 +85,23 @@ const String publishTo = r'https://pub.dev/';
 
 /// Environment
 const Map<String, String> environment = <String, String>{
-  'sdk': '>=2.19.0 <3.0.0',
+  'sdk': '>=2.19.0 <4.0.0',
 };
 
 /// Dependencies
 const Map<String, Object> dependencies = <String, Object>{
-  'build': r'^2.0.0',
-  'pub_semver': r'^2.0.0',
-  'yaml': r'^3.0.0',
+  'analyzer': r'^5.12.0',
+  'build': r'^2.3.1',
+  'pub_semver': r'^2.1.4',
+  'yaml': r'^3.1.2',
 };
 
 /// Developer dependencies
 const Map<String, Object> devDependencies = <String, Object>{
-  'build_runner': r'>=1.12.2 <3.0.0',
+  'build_runner': r'^2.3.3',
   'build_runner_core': r'^7.2.10',
-  'build_test': r'^2.0.0',
-  'test': r'^1.16.6',
+  'build_test': r'^2.1.5',
+  'test': r'^1.21.0',
 };
 
 /// Dependency overrides
@@ -121,4 +124,18 @@ const Map<String, Object> source = <String, Object>{
   'dependencies': dependencies,
   'dev_dependencies': devDependencies,
   'dependency_overrides': dependencyOverrides,
+  'topics': <Object>[
+    r'yaml',
+    r'pubspec',
+    r'generator',
+    r'build',
+    r'build_runner',
+    r'codegeneration',
+  ],
+  'screenshots': <Object>[
+    <String, Object>{
+      'description': r'Icon',
+      'path': r'.img/icon.png',
+    },
+  ],
 };
