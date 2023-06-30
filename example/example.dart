@@ -1,5 +1,5 @@
 /// GENERATED CODE - DO NOT MODIFY BY HAND
-
+library;
 /// ***************************************************************************
 /// *                            pubspec_generator                            * 
 /// ***************************************************************************
@@ -8,7 +8,7 @@
   
   MIT License
   
-  Copyright (c) 2021 Plague Fox
+  Copyright (c) 2023 Plague Fox
   
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -58,7 +58,7 @@ const List<String> pre = <String>[];
 const List<String> build = <String>[];
 
 /// Build date in Unix Time (in seconds)
-const int timestamp = 1621020291;
+const int timestamp = 1688073127;
 
 /// Name [name]
 const String name = r'pubspec_generator';
@@ -69,7 +69,7 @@ const String description = r'Code generator pubspec.yaml.g.dart from pubspec.yam
 /// Repository [repository]
 const String repository = r'https://github.com/PlugFox/pubspec_generator/tree/master';
 
-/// Issue tracker [issue_tracker]
+/// Issue tracker [issueTracker]
 const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
 
 /// Homepage [homepage]
@@ -78,12 +78,12 @@ const String homepage = r'https://github.com/PlugFox/pubspec_generator';
 /// Documentation [documentation]
 const String documentation = r'';
 
-/// Publish to [publish_to]
+/// Publish to [publishTo]
 const String publishTo = r'https://pub.dev/';
 
 /// Environment
 const Map<String, String> environment = <String, String>{
-  'sdk': '>=2.12.0 <3.0.0',
+  'sdk': '>=2.19.0 <3.0.0',
 };
 
 /// Dependencies
@@ -96,7 +96,7 @@ const Map<String, Object> dependencies = <String, Object>{
 /// Developer dependencies
 const Map<String, Object> devDependencies = <String, Object>{
   'build_runner': r'>=1.12.2 <3.0.0',
-  'build_runner_core': r'>=6.0.0 <7.0.0',
+  'build_runner_core': r'^7.2.10',
   'build_test': r'^2.0.0',
   'test': r'^1.16.6',
 };

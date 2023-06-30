@@ -25,7 +25,7 @@ mixin PropertiesGeneratorMixin on PubspecGenerator {
       ..write(_format(pubspec['repository'] as String? ?? ''))
       ..writeln('\';')
       ..writeln()
-      ..writeln('/// Issue tracker [issue_tracker]')
+      ..writeln('/// Issue tracker [issueTracker]')
       ..write('const String issueTracker = r\'')
       ..write(_format(pubspec['issue_tracker'] as String? ?? ''))
       ..writeln('\';')
@@ -40,7 +40,7 @@ mixin PropertiesGeneratorMixin on PubspecGenerator {
       ..write(_format(pubspec['documentation'] as String? ?? ''))
       ..writeln('\';')
       ..writeln()
-      ..writeln('/// Publish to [publish_to]')
+      ..writeln('/// Publish to [publishTo]')
       ..write('const String publishTo = r\'')
       ..write(_format(pubspec['publish_to'] as String? ?? 'https://pub.dev/'))
       ..writeln('\';');

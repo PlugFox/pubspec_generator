@@ -1,5 +1,3 @@
-// @dart=2.11
-
 import 'dart:async';
 import 'dart:io' as io;
 
