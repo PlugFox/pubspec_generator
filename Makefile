@@ -2,6 +2,7 @@
 
 build:
 	@dart run tool/runner.dart
+	@dart format -l 80 --fix .
 
 format:
 	@echo "Formatting the code"

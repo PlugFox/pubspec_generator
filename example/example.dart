@@ -115,10 +115,10 @@ sealed class Pubspec {
     6,
     30,
     13,
-    21,
-    35,
-    658,
-    285,
+    24,
+    42,
+    973,
+    864,
   );
 
   /// Name
@@ -153,7 +153,8 @@ sealed class Pubspec {
   /// Think of the description as the sales pitch for your package.
   /// Users see it when they [browse for packages](https://pub.dev/packages).
   /// The description is plain text: no markdown or HTML.
-  static const String description = r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
+  static const String description =
+      r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
 
   /// Homepage
   ///
@@ -165,7 +166,8 @@ sealed class Pubspec {
   /// While providing a homepage is optional,
   /// please provide it or repository (or both).
   /// It helps users understand where your package is coming from.
-  static const String homepage = r'https://github.com/PlugFox/pubspec_generator';
+  static const String homepage =
+      r'https://github.com/PlugFox/pubspec_generator';
 
   /// Repository
   ///
@@ -180,7 +182,8 @@ sealed class Pubspec {
   /// While providing a repository is optional,
   /// please provide it or homepage (or both).
   /// It helps users understand where your package is coming from.
-  static const String repository = r'https://github.com/PlugFox/pubspec_generator/tree/master';
+  static const String repository =
+      r'https://github.com/PlugFox/pubspec_generator/tree/master';
 
   /// Issue tracker
   ///
@@ -193,7 +196,8 @@ sealed class Pubspec {
   /// If issue_tracker is missing but repository is present and points to GitHub,
   /// then the pub.dev site uses the default issue tracker
   /// (https://github.com/<user>/<repository>/issues).
-  static const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
+  static const String issueTracker =
+      r'https://github.com/PlugFox/pubspec_generator/issues';
 
   /// Documentation
   ///
@@ -482,5 +486,4 @@ sealed class Pubspec {
     'dev_dependencies': devDependencies,
     'dependency_overrides': dependencyOverrides,
   };
-
 }
