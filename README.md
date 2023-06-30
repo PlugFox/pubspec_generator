@@ -51,6 +51,9 @@ targets:
 
 ## Result example
 
+![](version.png)
+Generated record for version.
+
 By default, at project path `lib/src/constants/pubspec.yaml.g.dart`:
 
 ```dart
@@ -58,9 +61,9 @@ sealed class Pubspec {
   static const PubspecVersion version = (
     representation: r'4.0.0-pre.1',
     canonical: r'4.0.0-pre.1',
-    major: r'4',
-    minor: r'0',
-    patch: r'0',
+    major: 4,
+    minor: 0,
+    patch: 0,
     preRelease: <String>[r'pre', r'1'],
     build: <String>[],
   );
