@@ -25,12 +25,11 @@ funding:
 #  - Plague Fox <plugfox@gmail.com>
 
 topics:
-  - yaml
   - pubspec
+  - yaml
   - generator
   - build
-  - build_runner
-  - codegeneration
+  - codegen
 
 screenshots:
   - description: 'Generated version record'
