@@ -2,9 +2,9 @@
 
 import 'package:build/build.dart' show log;
 
-import 'pubspec_builder.dart';
-import 'pubspec_builder_config.dart';
-import 'pubspec_builder_mixin.dart';
+import 'package:pubspec_generator/src/pubspec_builder.dart';
+import 'package:pubspec_generator/src/pubspec_builder_config.dart';
+import 'package:pubspec_generator/src/pubspec_builder_mixin.dart';
 
 /// Builder
 class PubspecBuilderImpl extends PubspecBuilder with PubspecBuilderMixin {

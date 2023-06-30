@@ -1,15 +1,12 @@
 // ignore_for_file: unnecessary_raw_strings
 
-import 'pubspec_generator.dart';
+import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
 
 /// {@nodoc}
 mixin HeaderGeneratorMixin on PubspecGenerator {
   @override
   Iterable<String> generate(Map<String, Object> pubspec) sync* {
     yield _mitLicense;
-    yield '// The pubspec file:';
-    yield '// https://dart.dev/tools/pub/pubspec';
-    yield '';
     yield* super.generate(pubspec);
   }
 }
@@ -19,15 +16,15 @@ final String _mitLicense = '''
 
 library pubspec;
 
-/// ***************************************************************************
-/// *                            pubspec_generator                            *
-/// ***************************************************************************
+// *****************************************************************************
+// *                             pubspec_generator                             *
+// *****************************************************************************
 
 /*
 
   MIT License
 
-  Copyright (c) ${DateTime.now().toUtc().year.clamp(2021, 9999)} Plague Fox
+  Copyright (c) ${DateTime.now().toUtc().year.clamp(2023, 9999)} Plague Fox
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

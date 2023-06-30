@@ -1,6 +1,6 @@
 // ignore_for_file: avoid_escaping_inner_quotes, avoid_annotating_with_dynamic
 
-import 'pubspec_generator.dart';
+import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
 
 /// {@nodoc}
 mixin EnvironmentGeneratorMixin on PubspecGenerator {
@@ -8,7 +8,8 @@ mixin EnvironmentGeneratorMixin on PubspecGenerator {
   Iterable<String> generate(Map<String, Object> pubspec) sync* {
     final buffer = StringBuffer()
       ..writeln('/// Environment')
-      ..writeln('const Map<String, String> environment = <String, String>{');
+      ..writeln(
+          'static const Map<String, String> environment = <String, String>{');
     final data = pubspec['environment'];
     if (data is Map<String, Object>) {
       final sdk = data['sdk'];

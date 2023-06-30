@@ -1,6 +1,5 @@
+import 'package:pubspec_generator/src/parser/pubspec_parser.dart';
 import 'package:yaml/yaml.dart';
-
-import 'pubspec_parser.dart';
 
 /// {@nodoc}
 class PubspecParserImpl extends PubspecParser {
@@ -10,48 +9,30 @@ class PubspecParserImpl extends PubspecParser {
 
   @override
   Map<String, Object> parse(String source) {
-    final dynamic doc = loadYaml(
-      source,
-    );
-    if (doc == null || doc is! Map) {
+    final Object? doc = loadYaml(source);
+    if (doc == null || doc is! Map<Object?, Object?>) {
       throw const FormatException('This is not valid pubspec.yaml content');
     }
     return _removeInvalidNodesFromMap(doc);
   }
 
-  Map<String, Object> _removeInvalidNodesFromMap(Map source) {
-    final result = <String, Object>{};
-    for (final node in source.entries) {
-      if (node.key is! String || node.value is! Object) {
-        continue;
-      }
-      result[(node.key as String).trim().toLowerCase()] =
-          _parseValue(node.value as Object);
-    }
-    return result;
-  }
+  Map<String, Object> _removeInvalidNodesFromMap(
+          Map<Object?, Object?> source) =>
+      <String, Object>{
+        for (final node in source.entries)
+          node.key.toString().trim().toLowerCase(): _parseValue(node.value)
+      };
 
-  List<Object> _removeInvalidElementsFromList(List source) {
-    final result = <Object>[];
-    for (final element in source) {
-      if (element is! Object) {
-        continue;
-      }
-      result.add(_parseValue(element));
-    }
-    return result;
-  }
+  List<Object> _removeInvalidElementsFromList(Iterable<Object?> source) =>
+      source.map((e) => e ?? '').toList();
 
-  Object _parseValue(Object value) {
-    if (value is Map) {
-      return _removeInvalidNodesFromMap(value);
-    } else if (value is List) {
-      return _removeInvalidElementsFromList(value);
-    } else if (value is num || value is String || value is bool) {
-      return value;
-    } else {
-      throw FormatException(
-          'Unknown type "${value.runtimeType}" as value in "pubspec.yaml"');
-    }
-  }
+  Object _parseValue(Object? value) => switch (value) {
+        Map<Object?, Object?> v => _removeInvalidNodesFromMap(v),
+        Iterable<Object?> v => _removeInvalidElementsFromList(v),
+        num v => v,
+        String v => v,
+        bool v => v,
+        Object v => v.toString(),
+        _ => '',
+      };
 }
