@@ -183,6 +183,16 @@ Refer to the [Changelog](https://github.com/plugfox/pubspec_generator/blob/maste
 
 [Plague Fox](https://plugfox.dev)
 
+## Funding
+
+If you want to support the development of our library, there are several ways you can do it:
+
+- [Buy me a coffee](https://www.buymeacoffee.com/plugfox)
+- [Support on Patreon](https://www.patreon.com/plugfox)
+- [Subscribe through Boosty](https://boosty.to/plugfox)
+
+We appreciate any form of support, whether it's a financial donation or just a star on GitHub. It helps us to continue developing and improving our library. Thank you for your support!
+
 ## License
 
 [MIT](https://github.com/plugfox/pubspec_generator/blob/master/LICENSE)
