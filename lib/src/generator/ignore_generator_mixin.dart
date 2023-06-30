@@ -14,4 +14,5 @@ mixin IgnoreGeneratorMixin on PubspecGenerator {
 const String _$ignoreForFile = r'''
 // ignore_for_file: lines_longer_than_80_chars, unnecessary_raw_strings
 // ignore_for_file: use_raw_strings, avoid_classes_with_only_static_members
-// ignore_for_file: avoid_escaping_inner_quotes, prefer_single_quotes''';
+// ignore_for_file: avoid_escaping_inner_quotes, prefer_single_quotes
+''';

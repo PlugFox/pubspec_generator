@@ -37,8 +37,8 @@ class PubspecGeneratorImpl extends PubspecGenerator
         VersionGeneratorMixin,
         ClassGeneratorMixin,
         TypedefGeneratorMixin,
-        IgnoreGeneratorMixin,
-        HeaderGeneratorMixin {
+        HeaderGeneratorMixin,
+        IgnoreGeneratorMixin {
   /// {@nodoc}
   /// @literal
   const PubspecGeneratorImpl() : super();

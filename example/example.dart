@@ -1,3 +1,7 @@
+// ignore_for_file: lines_longer_than_80_chars, unnecessary_raw_strings
+// ignore_for_file: use_raw_strings, avoid_classes_with_only_static_members
+// ignore_for_file: avoid_escaping_inner_quotes, prefer_single_quotes
+
 /// GENERATED CODE - DO NOT MODIFY BY HAND
 
 library pubspec;
@@ -32,9 +36,6 @@ library pubspec;
 
  */
 
-// ignore_for_file: lines_longer_than_80_chars, unnecessary_raw_strings
-// ignore_for_file: use_raw_strings, avoid_classes_with_only_static_members
-// ignore_for_file: avoid_escaping_inner_quotes, prefer_single_quotes
 /// Given a version number MAJOR.MINOR.PATCH, increment the:
 ///
 /// 1. MAJOR version when you make incompatible API changes
@@ -115,11 +116,11 @@ sealed class Pubspec {
     2023,
     6,
     30,
-    13,
-    46,
-    46,
-    868,
-    684,
+    14,
+    6,
+    45,
+    702,
+    693,
   );
 
   /// Name
@@ -312,7 +313,7 @@ sealed class Pubspec {
   /// Pub.dev generates the package’s thumbnail image from the first screenshot.
   /// If this screenshot uses animation, pub.dev uses its first frame.
   static const List<Object> screenshots = <Object>[
-    r'{description: Version, path: .img/version.png}',
+    r'{description: Generated version record, path: version.png}',
   ];
 
   /// Topics
@@ -342,12 +343,11 @@ sealed class Pubspec {
   /// When choosing topics, consider if existing topics are relevant.
   /// Tagging with existing topics helps users discover your package.
   static const List<Object> topics = <Object>[
-    r'yaml',
     r'pubspec',
+    r'yaml',
     r'generator',
     r'build',
-    r'build_runner',
-    r'codegeneration',
+    r'codegen',
   ];
 
   /// Environment
