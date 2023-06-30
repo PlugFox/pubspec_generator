@@ -2,8 +2,8 @@
 
 ##### Code generator pubspec.yaml.g.dart from pubspec.yaml
 
-[![Actions Status](https://github.com/PlugFox/pubspec_generator/workflows/pubspec_generator/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions)
 [![Pub](https://img.shields.io/pub/v/pubspec_generator.svg)](https://pub.dev/packages/pubspec_generator)
+[![Checkout](https://github.com/PlugFox/pubspec_generator/actions/workflows/checkout.yml/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions/workflows/checkout.yml)
 [![Coverage](https://codecov.io/gh/PlugFox/pubspec_generator/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/pubspec_generator)
 [![Code size](https://img.shields.io/github/languages/code-size/plugfox/pubspec_generator?logo=github&logoColor=white)](https://github.com/plugfox/pubspec_generator)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
