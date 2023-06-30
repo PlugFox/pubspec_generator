@@ -65,15 +65,14 @@ sealed class Pubspec {
     build: <String>[],
   );
 
-  static final DateTime timestamp = DateTime(
-    2023,
-    6,
-    30,
-    13,
-    12,
-    15,
-    487,
-    936,
+  static const PubspecVersion version = (
+    representation: r'4.0.0-pre.1',
+    canonical: r'4.0.0-pre.1',
+    major: 4,
+    minor: 0,
+    patch: 0,
+    preRelease: <String>[r'pre', r'1'],
+    build: <String>[],
   );
 
   static const String name = r'pubspec_generator';

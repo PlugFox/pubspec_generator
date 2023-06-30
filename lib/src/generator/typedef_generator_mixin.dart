@@ -12,9 +12,9 @@ mixin TypedefGeneratorMixin on PubspecGenerator {
       ..writeln('typedef PubspecVersion = ({')
       ..writeln('  String representation,')
       ..writeln('  String canonical,')
-      ..writeln('  String major,')
-      ..writeln('  String minor,')
-      ..writeln('  String patch,')
+      ..writeln('  int major,')
+      ..writeln('  int minor,')
+      ..writeln('  int patch,')
       ..writeln('  List<String> preRelease,')
       ..writeln('  List<String> build')
       ..writeln('});');

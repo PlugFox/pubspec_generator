@@ -46,9 +46,9 @@ library pubspec;
 typedef PubspecVersion = ({
   String representation,
   String canonical,
-  String major,
-  String minor,
-  String patch,
+  int major,
+  int minor,
+  int patch,
   List<String> preRelease,
   List<String> build
 });
@@ -95,14 +95,15 @@ sealed class Pubspec {
     // Canonicalized string representation of the version.
     canonical: r'4.0.0-pre.1',
     // MAJOR version when you make incompatible API changes.
-    // The major version number: "1" in "1.2.3".
-    major: r'4',
+    // The major version number: 1 in "1.2.3".
+    major: 4,
     // MINOR version when you add functionality
     // in a backward compatible manner.
-    // The minor version number: "2" in "1.2.3".
-    minor: r'0',
-    // The patch version number: "3" in "1.2.3".
-    patch: r'0',
+    // The minor version number: 2 in "1.2.3".
+    minor: 0,
+    // PATCH version when you make backward compatible bug fixes.
+    // The patch version number: 3 in "1.2.3".
+    patch: 0,
     // The pre-release identifier: "foo" in "1.2.3-foo".
     preRelease: <String>[r'pre', r'1'],
     // The build identifier: "foo" in "1.2.3+foo".
@@ -115,10 +116,10 @@ sealed class Pubspec {
     6,
     30,
     13,
-    24,
-    42,
-    973,
-    864,
+    41,
+    23,
+    584,
+    25,
   );
 
   /// Name
