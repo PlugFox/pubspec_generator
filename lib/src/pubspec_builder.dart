@@ -2,12 +2,12 @@
 
 import 'package:build/build.dart';
 
-import 'generator/pubspec_generator.dart';
-import 'generator/pubspec_generator_impl.dart';
-import 'parser/pubspec_parser.dart';
-import 'parser/pubspec_parser_impl.dart';
-import 'pubspec_builder_config.dart';
-import 'pubspec_builder_impl.dart';
+import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
+import 'package:pubspec_generator/src/generator/pubspec_generator_impl.dart';
+import 'package:pubspec_generator/src/parser/pubspec_parser.dart';
+import 'package:pubspec_generator/src/parser/pubspec_parser_impl.dart';
+import 'package:pubspec_generator/src/pubspec_builder_config.dart';
+import 'package:pubspec_generator/src/pubspec_builder_impl.dart';
 
 /// Pubspec builder
 Builder pubspecBuilder(BuilderOptions options) =>

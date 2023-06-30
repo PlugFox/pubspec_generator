@@ -1,36 +1,40 @@
-# pubspec_generator  
-##### Code generator pubspec.yaml.g.dart from pubspec.yaml  
-  
-[![Actions Status](https://github.com/PlugFox/pubspec_generator/workflows/pubspec_generator/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions)
+# pubspec_generator
+
+##### Code generator pubspec.yaml.g.dart from pubspec.yaml
+
 [![Pub](https://img.shields.io/pub/v/pubspec_generator.svg)](https://pub.dev/packages/pubspec_generator)
+[![Checkout](https://github.com/PlugFox/pubspec_generator/actions/workflows/checkout.yml/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions/workflows/checkout.yml)
+[![Coverage](https://codecov.io/gh/PlugFox/pubspec_generator/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/pubspec_generator)
 [![Code size](https://img.shields.io/github/languages/code-size/plugfox/pubspec_generator?logo=github&logoColor=white)](https://github.com/plugfox/pubspec_generator)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![effective_dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+[![Linter](https://img.shields.io/badge/style-linter-40c4ff.svg)](https://pub.dev/packages/linter)
 [![GitHub stars](https://img.shields.io/github/stars/plugfox/pubspec_generator?style=social)](https://github.com/plugfox/pubspec_generator/)
+
 <!--
 [![Coverage](https://codecov.io/gh/PlugFox/pubspec_generator/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/pubspec_generator)
 -->
-  
-  
-## Setup  
-  
-Add the following lines to the pubspec.yaml:  
+
+## Setup
+
+Add the following lines to the pubspec.yaml:
+
 ```yaml
 dev_dependencies:
   build_runner: ^1.12.2
   pubspec_generator: ^3.0.0
 ```
-  
-and then execute in the console:  
+
+and then execute in the console:
+
 ```bash
 dart run build_runner build
 ```
-  
-  
-## Path of creation  
 
-Create `build.yaml` at project root (near with `pubspec.yaml`).  
+## Path of creation
+
+Create `build.yaml` at project root (near with `pubspec.yaml`).
 And set output path:
+
 ```yaml
 # Read about `build.yaml` at https://pub.dev/packages/build_config
 targets:
@@ -44,111 +48,139 @@ targets:
         options:
           output: lib/src/constants/pubspec.yaml.g.dart
 ```
-  
-  
-## Result example  
-  
-By default, at project path `lib/src/constants/pubspec.yaml.g.dart`:  
-  
+
+## Result example
+
+By default, at project path `lib/src/constants/pubspec.yaml.g.dart`:
+
 ```dart
-/// Current app version
-const String version = r'3.0.0-nullsafety.0';
+sealed class Pubspec {
+  static const PubspecVersion version = (
+    representation: r'4.0.0-pre.1',
+    canonical: r'4.0.0-pre.1',
+    major: r'4',
+    minor: r'0',
+    patch: r'0',
+    preRelease: <String>[r'pre', r'1'],
+    build: <String>[],
+  );
 
-/// The major version number: "1" in "1.2.3".
-const int major = 3;
+  static final DateTime timestamp = DateTime(
+    2023,
+    6,
+    30,
+    13,
+    12,
+    15,
+    487,
+    936,
+  );
 
-/// The minor version number: "2" in "1.2.3".
-const int minor = 0;
+  static const String name = r'pubspec_generator';
 
-/// The patch version number: "3" in "1.2.3".
-const int patch = 0;
+  static const String description =
+      r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
 
-/// The pre-release identifier: "foo" in "1.2.3-foo".
-const List<String> pre = <String>[r'nullsafety', r'0'];
+  static const String homepage =
+      r'https://github.com/PlugFox/pubspec_generator';
 
-/// The build identifier: "foo" in "1.2.3+foo".
-const List<String> build = <String>[];
+  static const String repository =
+      r'https://github.com/PlugFox/pubspec_generator/tree/master';
 
-/// Build date in Unix Time (in seconds)
-const int timestamp = 1616624182;
+  static const String issueTracker =
+      r'https://github.com/PlugFox/pubspec_generator/issues';
 
-/// Name [name]
-const String name = r'pubspec_generator';
+  static const String documentation = r'';
 
-/// Description [description]
-const String description = r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
+  static const String publishTo = r'https://pub.dev/';
 
-/// Repository [repository]
-const String repository = r'https://github.com/PlugFox/pubspec_generator/tree/master';
+  static const List<Object> funding = <Object>[
+    r'https://www.buymeacoffee.com/plugfox',
+    r'https://www.patreon.com/plugfox',
+    r'https://boosty.to/plugfox',
+  ];
 
-/// Issue tracker [issue_tracker]
-const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
+  static const List<Object> falseSecrets = <Object>[];
 
-/// Homepage [homepage]
-const String homepage = r'https://github.com/PlugFox/pubspec_generator';
+  static const List<Object> screenshots = <Object>[
+    <String, Object>{
+      'description': r'Icon',
+      'path': r'.img/icon.png',
+    },
+  ];
 
-/// Documentation [documentation]
-const String documentation = r'https://github.com/PlugFox/pubspec_generator/tree/master';
+  static const List<Object> topics = <Object>[
+    r'yaml',
+    r'pubspec',
+    r'generator',
+    r'build',
+    r'build_runner',
+    r'codegeneration',
+  ];
 
-/// Publish to [publish_to]
-const String publishTo = r'https://pub.dev/';
+  static const Map<String, String> environment = <String, String>{
+    'sdk': '>=3.0.0 <4.0.0',
+  };
 
-/// Environment
-const Map<String, String> environment = <String, String>{
-  'sdk': '>=2.12.0 <3.0.0',
-};
+  static const Map<String, Object> platforms = <String, Object>{
+    'android': r'',
+    'ios': r'',
+    'linux': r'',
+    'macos': r'',
+    'web': r'',
+    'windows': r'',
+  };
 
-/// Dependencies
-const Map<String, Object> dependencies = <String, Object>{
-  'build': r'^2.0.0',
-  'pub_semver': r'^2.0.0',
-  'yaml': r'^3.0.0',
-};
+  static const Map<String, Object> dependencies = <String, Object>{
+    'analyzer': r'^6.0.0',
+    'build': r'^2.3.1',
+    'pub_semver': r'^2.1.4',
+    'yaml': r'^3.1.2',
+  };
 
-/// Developer dependencies
-const Map<String, Object> devDependencies = <String, Object>{
-  'build_runner': r'^1.12.2',
-  'build_runner_core': r'^6.0.0',
-  'build_test': r'^2.0.0',
-  'test': r'^1.16.6',
-};
+  static const Map<String, Object> devDependencies = <String, Object>{
+    'build_runner': r'^2.3.3',
+    'build_runner_core': r'^7.2.10',
+    'build_test': r'^2.1.5',
+    'test': r'^1.21.0',
+  };
 
-/// Dependency overrides
-const Map<String, Object> dependencyOverrides = <String, Object>{};
+  static const Map<String, Object> dependencyOverrides = <String, Object>{};
 
-/// Executables
-const Map<String, Object> executables = <String, Object>{};
+  static const Map<String, Object> executables = <String, Object>{};
 
-/// Source data from pubspec.yaml
-const Map<String, Object> source = <String, Object>{
-  'name': name,
-  'description': description,
-  'repository': repository,
-  'issue_tracker': issueTracker,
-  'homepage': homepage,
-  'documentation': documentation,
-  'publish_to': publishTo,
-  'version': version,
-  'environment': environment,
-  'dependencies': dependencies,
-  'dev_dependencies': devDependencies,
-  'dependency_overrides': dependencyOverrides,
-};
+  static const Map<String, Object> source = <String, Object>{
+    'name': name,
+    'description': description,
+    'repository': repository,
+    'issue_tracker': issueTracker,
+    'homepage': homepage,
+    'documentation': documentation,
+    'publish_to': publishTo,
+    'version': version,
+    'funding': funding,
+    'false_secrets': falseSecrets,
+    'screenshots': screenshots,
+    'topics': topics,
+    'platforms': platforms,
+    'environment': environment,
+    'dependencies': dependencies,
+    'dev_dependencies': devDependencies,
+    'dependency_overrides': dependencyOverrides,
+  };
+}
 ```
-  
-  
-## Changelog  
-  
-Refer to the [Changelog](https://github.com/plugfox/pubspec_generator/blob/master/CHANGELOG.md) to get all release notes.  
-  
-  
-## Maintainers  
-  
-[Plague Fox](https://plugfox.dev)  
-  
-  
-## License  
-  
-[MIT](https://github.com/plugfox/pubspec_generator/blob/master/LICENSE)  
-  
-  
+
+- Example provided without comments.
+
+## Changelog
+
+Refer to the [Changelog](https://github.com/plugfox/pubspec_generator/blob/master/CHANGELOG.md) to get all release notes.
+
+## Maintainers
+
+[Plague Fox](https://plugfox.dev)
+
+## License
+
+[MIT](https://github.com/plugfox/pubspec_generator/blob/master/LICENSE)
