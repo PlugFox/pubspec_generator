@@ -1,4 +1,4 @@
-## 4.0.0-pre.1 - 2023-06-30
+## 4.0.0 - 2023-07-03
 
 ### Changed
 
@@ -6,6 +6,9 @@
 - Refactoring
 - Sealed class instead of global variables
 - More properties
+- Comments
+- Tests
+- Update README.md
 
 ## 3.0.1 - 2021-05-14
 

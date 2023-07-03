@@ -6,10 +6,10 @@ import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
 mixin TimestampGeneratorMixin on PubspecGenerator {
   @override
   Iterable<String> generate(Map<String, Object> pubspec) sync* {
-    final now = DateTime.now();
+    final now = DateTime.now().toUtc();
     final builder = StringBuffer()
-      ..writeln('/// Build date')
-      ..writeln('static final DateTime timestamp = DateTime(')
+      ..writeln('/// Build date and time (UTC)')
+      ..writeln('static final DateTime timestamp = DateTime.utc(')
       ..writeln('  ${now.year},')
       ..writeln('  ${now.month},')
       ..writeln('  ${now.day},')

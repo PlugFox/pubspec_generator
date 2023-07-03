@@ -4,7 +4,7 @@ description: >
   Code generator pubspec.yaml.g.dart from pubspec.yaml.
   Just import `pubspec_generator` and then run `dart run build_runner build`
 
-version: 4.0.0-pre.1
+version: 4.0.0
 
 repository: https://github.com/PlugFox/pubspec_generator/tree/master
 
@@ -29,7 +29,7 @@ topics:
   - yaml
   - generator
   - build
-  - codegen
+  - version
 
 screenshots:
   - description: 'Generated version record'

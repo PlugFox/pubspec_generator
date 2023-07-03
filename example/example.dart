@@ -91,36 +91,46 @@ sealed class Pubspec {
   /// When you select a version,
   /// follow [semantic versioning](https://semver.org/).
   static const PubspecVersion version = (
-    // Non-canonical string representation of the version.
-    representation: r'4.0.0-pre.1',
-    // Canonicalized string representation of the version.
-    canonical: r'4.0.0-pre.1',
-    // MAJOR version when you make incompatible API changes.
-    // The major version number: 1 in "1.2.3".
+    /// Non-canonical string representation of the version as provided
+    /// in the pubspec.yaml file.
+    representation: r'4.0.0',
+
+    /// Returns a 'canonicalized' representation
+    /// of the application version.
+    /// This represents the version string in accordance with
+    /// Semantic Versioning (SemVer) standards.
+    canonical: r'4.0.0',
+
+    /// MAJOR version when you make incompatible API changes.
+    /// The major version number: 1 in "1.2.3".
     major: 4,
-    // MINOR version when you add functionality
-    // in a backward compatible manner.
-    // The minor version number: 2 in "1.2.3".
+
+    /// MINOR version when you add functionality
+    /// in a backward compatible manner.
+    /// The minor version number: 2 in "1.2.3".
     minor: 0,
-    // PATCH version when you make backward compatible bug fixes.
-    // The patch version number: 3 in "1.2.3".
+
+    /// PATCH version when you make backward compatible bug fixes.
+    /// The patch version number: 3 in "1.2.3".
     patch: 0,
-    // The pre-release identifier: "foo" in "1.2.3-foo".
-    preRelease: <String>[r'pre', r'1'],
-    // The build identifier: "foo" in "1.2.3+foo".
+
+    /// The pre-release identifier: "foo" in "1.2.3-foo".
+    preRelease: <String>[],
+
+    /// The build identifier: "foo" in "1.2.3+foo".
     build: <String>[],
   );
 
-  /// Build date
-  static final DateTime timestamp = DateTime(
+  /// Build date and time (UTC)
+  static final DateTime timestamp = DateTime.utc(
     2023,
-    6,
-    30,
-    14,
-    6,
-    45,
-    702,
-    693,
+    7,
+    3,
+    9,
+    49,
+    54,
+    100,
+    370,
   );
 
   /// Name
@@ -347,7 +357,7 @@ sealed class Pubspec {
     r'yaml',
     r'generator',
     r'build',
-    r'codegen',
+    r'version',
   ];
 
   /// Environment
