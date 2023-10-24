@@ -1,3 +1,9 @@
+## 4.1.0-pre.1 - 2023-10-24
+
+# Added
+
+- Disable timestamp generation option
+
 ## 4.0.0 - 2023-07-03
 
 ### Changed

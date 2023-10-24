@@ -1,7 +1,3 @@
-# Customizing static analysis
-# https://dart.dev/guides/language/analysis-options/
-# https://dart-lang.github.io/linter/lints/
-
 include: package:lints/recommended.yaml
 
 analyzer:
@@ -22,12 +18,10 @@ analyzer:
     strict-raw-types: true
     strict-inference: true
 
-  #enable-experiment:
-  #  - non-nullable
-
   errors:
+    todo: ignore
+
     # Info
-    todo: info
     directives_ordering: info
     always_declare_return_types: info
 
@@ -59,7 +53,6 @@ linter:
     prefer_relative_imports: false
     prefer_final_locals: false
     avoid_escaping_inner_quotes: false
-    avoid_classes_with_only_static_members: false
 
     # Enabled
     always_put_required_named_parameters_first: true
@@ -84,10 +77,9 @@ linter:
     close_sinks: true
     control_flow_in_finally: true
     empty_statements: true
-    iterable_contains_unrelated_type: true
+    collection_methods_unrelated_type: true
     join_return_with_assignment: true
     leading_newlines_in_multiline_strings: true
-    list_remove_unrelated_type: true
     literal_only_boolean_expressions: true
     missing_whitespace_between_adjacent_strings: true
     no_adjacent_strings_in_list: true
@@ -197,6 +189,7 @@ linter:
     avoid_catching_errors: true
     use_to_and_as_if_applicable: true
     one_member_abstracts: true
+    avoid_classes_with_only_static_members: true
     prefer_mixin: true
     use_setters_to_change_properties: true
     avoid_setters_without_getters: true

@@ -40,6 +40,5 @@ class PubspecGeneratorImpl extends PubspecGenerator
         HeaderGeneratorMixin,
         IgnoreGeneratorMixin {
   /// {@nodoc}
-  /// @literal
-  const PubspecGeneratorImpl() : super();
+  const PubspecGeneratorImpl({required super.config});
 }

@@ -93,13 +93,13 @@ sealed class Pubspec {
   static const PubspecVersion version = (
     /// Non-canonical string representation of the version as provided
     /// in the pubspec.yaml file.
-    representation: r'4.0.0',
+    representation: r'4.1.0-pre.1',
 
     /// Returns a 'canonicalized' representation
     /// of the application version.
     /// This represents the version string in accordance with
     /// Semantic Versioning (SemVer) standards.
-    canonical: r'4.0.0',
+    canonical: r'4.1.0-pre.1',
 
     /// MAJOR version when you make incompatible API changes.
     /// The major version number: 1 in "1.2.3".
@@ -108,14 +108,14 @@ sealed class Pubspec {
     /// MINOR version when you add functionality
     /// in a backward compatible manner.
     /// The minor version number: 2 in "1.2.3".
-    minor: 0,
+    minor: 1,
 
     /// PATCH version when you make backward compatible bug fixes.
     /// The patch version number: 3 in "1.2.3".
     patch: 0,
 
     /// The pre-release identifier: "foo" in "1.2.3-foo".
-    preRelease: <String>[],
+    preRelease: <String>[r'pre', r'1'],
 
     /// The build identifier: "foo" in "1.2.3+foo".
     build: <String>[],
@@ -124,13 +124,13 @@ sealed class Pubspec {
   /// Build date and time (UTC)
   static final DateTime timestamp = DateTime.utc(
     2023,
-    7,
-    3,
-    9,
-    49,
-    54,
-    100,
-    370,
+    10,
+    24,
+    16,
+    45,
+    28,
+    717,
+    914,
   );
 
   /// Name
@@ -330,7 +330,9 @@ sealed class Pubspec {
   ///
   /// Current app [topics]
   ///
-  /// Package authors can use the topics field to categorize their package. Topics can be used to assist discoverability during search with filters on pub.dev. Pub.dev displays the topics on the package page as well as in the search results.
+  /// Package authors can use the topics field to categorize their package.
+  /// Topics can be used to assist discoverability during search with filters on pub.dev.
+  /// Pub.dev displays the topics on the package page as well as in the search results.
   ///
   /// The field consists of a list of names. For example:
   ///

@@ -9,7 +9,7 @@ mixin ClassGeneratorMixin on PubspecGenerator {
     yield _$classDescription;
     yield 'sealed class Pubspec {';
     yield* super.generate(pubspec).map<String>(_padding);
-    yield '}';
+    yield '}\n';
   }
 
   String _padding(String text) => text

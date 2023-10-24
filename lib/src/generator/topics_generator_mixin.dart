@@ -27,7 +27,9 @@ const String _$topicsDescription = '''
 ///
 /// Current app [topics]
 ///
-/// Package authors can use the topics field to categorize their package. Topics can be used to assist discoverability during search with filters on pub.dev. Pub.dev displays the topics on the package page as well as in the search results.
+/// Package authors can use the topics field to categorize their package.
+/// Topics can be used to assist discoverability during search with filters on pub.dev.
+/// Pub.dev displays the topics on the package page as well as in the search results.
 ///
 /// The field consists of a list of names. For example:
 ///

@@ -1,7 +1,6 @@
 // ignore_for_file: avoid_escaping_inner_quotes, avoid_annotating_with_dynamic
 
 import 'package:build/build.dart';
-
 import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
 import 'package:pubspec_generator/src/generator/pubspec_generator_impl.dart';
 import 'package:pubspec_generator/src/parser/pubspec_parser.dart';
@@ -30,7 +29,7 @@ abstract class PubspecBuilder implements Builder {
   /// PubspecBuilder constructor with BuilderOptions
   PubspecBuilder(this.config)
       : pubspecParser = const PubspecParserImpl(),
-        pubspecGenerator = const PubspecGeneratorImpl(),
+        pubspecGenerator = PubspecGeneratorImpl(config: config),
         buildExtensions = <String, List<String>>{
           'pubspec.yaml': <String>[config.output],
         };
