@@ -4,7 +4,7 @@ import 'dart:async';
 
 import 'package:build/build.dart';
 
-import 'pubspec_builder.dart';
+import 'package:pubspec_generator/src/pubspec_builder.dart';
 
 /// {@nodoc}
 mixin PubspecBuilderMixin on PubspecBuilder {
@@ -42,7 +42,7 @@ mixin PubspecBuilderMixin on PubspecBuilder {
           .readAsString(inputId)
           .then<Map<String, Object>>(pubspecParser.parse)
           .then<Iterable<String>>(pubspecGenerator.generate)
-          .then<String>((value) => value.join('\r\n'));
+          .then<String>((value) => value.join('\n'));
       // Write out the new asset.
       await buildStep.writeAsString(copy, content);
     } on PackageNotFoundException {

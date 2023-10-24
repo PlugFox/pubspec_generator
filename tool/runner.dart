@@ -1,5 +1,3 @@
-// @dart=2.11
-
 import 'dart:async';
 import 'dart:io' as io;
 
@@ -25,7 +23,10 @@ void main(List<String> args) => runZoned(
               core.toRoot(),
               hideOutput: false,
               defaultDevOptions: const build.BuilderOptions(
-                <String, dynamic>{'output': 'example/example.dart'},
+                <String, dynamic>{
+                  'output': 'example/example.dart',
+                  'timestamp': 'true',
+                },
                 isRoot: true,
               ),
             ),

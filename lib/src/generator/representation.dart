@@ -24,7 +24,9 @@ String representation({
         buffer.writeln(',');
       }
       indent--;
-      buffer..write(' ' * indent * 2)..write(']');
+      buffer
+        ..write(' ' * indent * 2)
+        ..write(']');
     } else if (object is Map<String, Object?>) {
       buffer
         ..write('<String, Object')
@@ -42,7 +44,9 @@ String representation({
         buffer.writeln(',');
       }
       indent--;
-      buffer..write(' ' * indent * 2)..write('}');
+      buffer
+        ..write(' ' * indent * 2)
+        ..write('}');
     } else if (object is String) {
       buffer
         ..write('r\'')

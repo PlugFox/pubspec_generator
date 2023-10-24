@@ -1,40 +1,53 @@
-# pubspec_generator  
-##### Code generator pubspec.yaml.g.dart from pubspec.yaml  
-  
-[![Actions Status](https://github.com/PlugFox/pubspec_generator/workflows/pubspec_generator/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions)
+# pubspec_generator
+
+##### Code generator pubspec.yaml.g.dart from pubspec.yaml
+
 [![Pub](https://img.shields.io/pub/v/pubspec_generator.svg)](https://pub.dev/packages/pubspec_generator)
-[![Likes](https://img.shields.io/badge/dynamic/json?color=blue&label=likes&query=likes&url=http://www.pubscore.gq/likes?package=pubspec_generator&style=flat-square&cacheSeconds=90000)](https://pub.dev/packages/pubspec_generator)
-[![Health](https://img.shields.io/badge/dynamic/json?color=blue&label=health&query=pub_points&url=http://www.pubscore.gq/pub-points?package=pubspec_generator&style=flat-square&cacheSeconds=90000)](https://pub.dev/packages/pubspec_generator/score)
+[![Checkout](https://github.com/PlugFox/pubspec_generator/actions/workflows/checkout.yml/badge.svg)](https://github.com/PlugFox/pubspec_generator/actions/workflows/checkout.yml)
+[![Coverage](https://codecov.io/gh/PlugFox/pubspec_generator/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/pubspec_generator)
 [![Code size](https://img.shields.io/github/languages/code-size/plugfox/pubspec_generator?logo=github&logoColor=white)](https://github.com/plugfox/pubspec_generator)
 [![License: MIT](https://img.shields.io/badge/license-MIT-purple.svg)](https://opensource.org/licenses/MIT)
-[![effective_dart](https://img.shields.io/badge/style-effective_dart-40c4ff.svg)](https://github.com/tenhobi/effective_dart)
+[![Linter](https://img.shields.io/badge/style-linter-40c4ff.svg)](https://pub.dev/packages/linter)
 [![GitHub stars](https://img.shields.io/github/stars/plugfox/pubspec_generator?style=social)](https://github.com/plugfox/pubspec_generator/)
-<!--
-[![Coverage](https://codecov.io/gh/PlugFox/pubspec_generator/branch/master/graph/badge.svg)](https://codecov.io/gh/PlugFox/pubspec_generator)
--->
-  
-  
-## Setup  
-  
-Add the following lines to the pubspec.yaml:  
-```yaml
-dev_dependencies:
-  build_runner: ^1.12.2
-  pubspec_generator: ^3.0.0
-```
-  
-and then execute in the console:  
-```bash
-dart run build_runner build
-```
-  
-  
-## Path of creation  
 
-Create `build.yaml` at project root (near with `pubspec.yaml`).  
+Pubspec Generator is a Dart library that auto-generates a class containing the information from `pubspec.yaml` description, dependencies and the current app version for all possible platforms. This is an efficient way to keep the application metadata up-to-date across your entire project.
+
+## Features
+
+- **Automated code generation:** Create a Dart class that includes your `pubspec.yaml` description and current application version automatically.
+
+- **Cross-platform compatibility:** Supports all platforms where Dart is available.
+
+**Continually updated:** The generated class updates as your pubspec.yaml changes, so your application's metadata remains current at all times.
+
+## Installation
+
+First, add pubspec_info_codegen to your `pubspec.yaml`:
+
+```dart
+dev_dependencies:
+  build_runner: <VERSION>
+  pubspec_generator: <VERSION>
+```
+
+or just run
+
+```bash
+$ dart pub add --dev build_runner pubspec_generator
+```
+
+Then, run the flutter pub get command to fetch the dependency:
+
+```bash
+$ dart pub get
+```
+
+## Configuration
+
+Create `build.yaml` at project root (near with `pubspec.yaml`).
 And set output path:
+
 ```yaml
-# Read about `build.yaml` at https://pub.dev/packages/build_config
 targets:
   $default:
     sources:
@@ -46,111 +59,77 @@ targets:
         options:
           output: lib/src/constants/pubspec.yaml.g.dart
 ```
-  
-  
-## Result example  
-  
-By default, at project path `lib/src/constants/pubspec.yaml.g.dart`:  
-  
-```dart
-/// Current app version
-const String version = r'3.0.0-nullsafety.0';
 
-/// The major version number: "1" in "1.2.3".
-const int major = 3;
+- Read more about `build.yaml` at [here](https://pub.dev/packages/build_config).
 
-/// The minor version number: "2" in "1.2.3".
-const int minor = 0;
+## Usage
 
-/// The patch version number: "3" in "1.2.3".
-const int patch = 0;
+To use the library, you need to run the provided script which triggers the code generation. Below is an example command to do so:
 
-/// The pre-release identifier: "foo" in "1.2.3-foo".
-const List<String> pre = <String>[r'nullsafety', r'0'];
-
-/// The build identifier: "foo" in "1.2.3+foo".
-const List<String> build = <String>[];
-
-/// Build date in Unix Time (in seconds)
-const int timestamp = 1616624182;
-
-/// Name [name]
-const String name = r'pubspec_generator';
-
-/// Description [description]
-const String description = r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
-
-/// Repository [repository]
-const String repository = r'https://github.com/PlugFox/pubspec_generator/tree/master';
-
-/// Issue tracker [issue_tracker]
-const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
-
-/// Homepage [homepage]
-const String homepage = r'https://github.com/PlugFox/pubspec_generator';
-
-/// Documentation [documentation]
-const String documentation = r'https://github.com/PlugFox/pubspec_generator/tree/master';
-
-/// Publish to [publish_to]
-const String publishTo = r'https://pub.dev/';
-
-/// Environment
-const Map<String, String> environment = <String, String>{
-  'sdk': '>=2.12.0 <3.0.0',
-};
-
-/// Dependencies
-const Map<String, Object> dependencies = <String, Object>{
-  'build': r'^2.0.0',
-  'pub_semver': r'^2.0.0',
-  'yaml': r'^3.0.0',
-};
-
-/// Developer dependencies
-const Map<String, Object> devDependencies = <String, Object>{
-  'build_runner': r'^1.12.2',
-  'build_runner_core': r'^6.0.0',
-  'build_test': r'^2.0.0',
-  'test': r'^1.16.6',
-};
-
-/// Dependency overrides
-const Map<String, Object> dependencyOverrides = <String, Object>{};
-
-/// Executables
-const Map<String, Object> executables = <String, Object>{};
-
-/// Source data from pubspec.yaml
-const Map<String, Object> source = <String, Object>{
-  'name': name,
-  'description': description,
-  'repository': repository,
-  'issue_tracker': issueTracker,
-  'homepage': homepage,
-  'documentation': documentation,
-  'publish_to': publishTo,
-  'version': version,
-  'environment': environment,
-  'dependencies': dependencies,
-  'dev_dependencies': devDependencies,
-  'dependency_overrides': dependencyOverrides,
-};
+```bash
+$ dart run build_runner build --delete-conflicting-outputs
 ```
-  
-  
-## Changelog  
-  
-Refer to the [Changelog](https://github.com/plugfox/pubspec_generator/blob/master/CHANGELOG.md) to get all release notes.  
-  
-  
-## Maintainers  
-  
-[Plague Fox](https://plugfox.dev)  
-  
-  
-## License  
-  
-[MIT](https://github.com/plugfox/pubspec_generator/blob/master/LICENSE)  
-  
-  
+
+This command generates a `pubspec.yaml.g.dart` file in your `lib` directory, which contains a class with your `pubspec.yaml` description and the current app version. You can import this file in your Dart code and use the class to access your app's metadata.
+
+## Use Cases
+
+1. **Consistent app metadata across multiple platforms:** This library ensures that the application metadata (description, version) is consistent across all platforms, reducing the chances of discrepancies.
+
+2. **Reduced manual errors:** Automated code generation eliminates the need for manual updates and thereby reduces the potential for errors.
+
+3. **Faster development process:** Less time spent managing app metadata means more time for feature development.
+
+4. **Dynamic display of app information:** You can use the generated class to dynamically display the app's description and version in the UI, which would automatically stay updated with changes in `pubspec.yaml`.
+
+5. **Automated Version Migration:** With the library's functionality, you can also handle automated version migration. If your app has different behavior or functionalities across different versions, you can use the auto-generated class to identify the current version and execute the necessary migration logic. This ensures a smooth and seamless user experience across updates.
+
+6. **Backend Request Headers:** The generated class can also be used to add meta information from `pubspec.yaml` into the headers of your backend requests. This can help your backend service identify the app version that is making the request, which can be useful for debugging, tracking, or version-specific behaviors on the backend.
+
+7. **App Analytics Configuration:** The metadata from `pubspec.yaml` (like app version) can be sent to your analytics tool (such as Firebase Analytics) to track the usage of different app versions. This can provide valuable insights into your user base, helping you understand how different versions of your app are being used, which versions are most popular, and how updates affect user behavior. It can also assist in identifying any issues or crashes specific to a certain version.
+
+## Result
+
+![](version.png)
+Generated record for version. A full output example can be found [here](https://pub.dev/packages/pubspec_generator/example).
+
+## Changelog
+
+Refer to the [Changelog](https://github.com/plugfox/pubspec_generator/blob/master/CHANGELOG.md) to get all release notes.
+
+## Maintainers
+
+- Matiunin Mikhail aka [Plague Fox](https://plugfox.dev)
+
+## Funding
+
+If you want to support the development of our library, there are several ways you can do it:
+
+- [Buy me a coffee](https://www.buymeacoffee.com/plugfox)
+- [Support on Patreon](https://www.patreon.com/plugfox)
+- [Subscribe through Boosty](https://boosty.to/plugfox)
+
+We appreciate any form of support, whether it's a financial donation or just a star on GitHub. It helps us to continue developing and improving our library. Thank you for your support!
+
+## License
+
+The [MIT](https://github.com/plugfox/pubspec_generator/blob/master/LICENSE) License is a permissive free software license originating at the Massachusetts Institute of Technology (MIT). It's a simple license that has minimal restrictions on what end-users can do with the software. Here's a summary of the permissions, conditions, and limitations under the MIT License:
+
+**Permissions:**
+
+- **Commercial Use:** You are free to use the software for commercial purposes.
+- **Modification:** You can make changes to the software and distribute your modifications.
+- **Distribution:** You can distribute the original or modified (derivative) software.
+- **Private Use:** You are free to use the software for private purposes.
+
+**Conditions:**
+
+- **Include Copyright:** You must include the original copyright notice in any copy of the software/source code.
+- **Include License:** You must include a copy of the license in any copy of the software/source code.
+
+**Limitations:**
+
+- **No Liability:** The software is provided "as is". The authors or copyright holders cannot be held liable for any damages or other liability, whether in an action of contract, tort, or otherwise, arising from, out of, or in connection with the software or the use or other dealings in the software.
+- **No Warranty:** The authors or copyright holders provide no warranty of any kind.
+
+It's important to note that this is a simplified explanation of the MIT License. If you're using MIT-licensed software in a manner that could expose you to legal risk, it's always a good idea to consult with a qualified legal professional.

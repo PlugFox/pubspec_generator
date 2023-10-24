@@ -1,7 +1,7 @@
 // ignore_for_file: avoid_escaping_inner_quotes, avoid_annotating_with_dynamic
 
-import 'pubspec_generator.dart';
-import 'representation.dart';
+import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
+import 'package:pubspec_generator/src/generator/representation.dart';
 
 /// {@nodoc}
 mixin SourceGeneratorMixin on PubspecGenerator {
@@ -9,7 +9,7 @@ mixin SourceGeneratorMixin on PubspecGenerator {
   Iterable<String> generate(Map<String, Object> data) sync* {
     final buffer = StringBuffer()
       ..writeln('/// Source data from pubspec.yaml')
-      ..writeln('const Map<String, Object> source = <String, Object>{');
+      ..writeln('static const Map<String, Object> source = <String, Object>{');
 
     void refToValue(String key, String value) {
       data.remove(key);
@@ -29,13 +29,21 @@ mixin SourceGeneratorMixin on PubspecGenerator {
     refToValue('documentation', 'documentation');
     refToValue('publish_to', 'publishTo');
     refToValue('version', 'version');
+    refToValue('funding', 'funding');
+    refToValue('false_secrets', 'falseSecrets');
+    refToValue('screenshots', 'screenshots');
+    refToValue('topics', 'topics');
+    refToValue('platforms', 'platforms');
     refToValue('environment', 'environment');
     refToValue('dependencies', 'dependencies');
     refToValue('dev_dependencies', 'devDependencies');
     refToValue('dependency_overrides', 'dependencyOverrides');
     if (data.isNotEmpty) {
       for (final entry in data.entries) {
-        buffer..write('  \'')..write(entry.key)..write('\': ');
+        buffer
+          ..write('  \'')
+          ..write(entry.key)
+          ..write('\': ');
         representation(
           source: entry.value,
           stringBuffer: buffer,
