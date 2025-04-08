@@ -1,3 +1,4 @@
+import 'package:meta/meta.dart';
 import 'package:pubspec_generator/src/generator/class_generator_mixin.dart';
 import 'package:pubspec_generator/src/generator/dependencies_generator_mixin.dart';
 import 'package:pubspec_generator/src/generator/dependency_overrides_generator_mixin.dart';
@@ -18,7 +19,8 @@ import 'package:pubspec_generator/src/generator/topics_generator_mixin.dart';
 import 'package:pubspec_generator/src/generator/typedef_generator_mixin.dart';
 import 'package:pubspec_generator/src/generator/version_generator_mixin.dart';
 
-/// {@nodoc}
+@internal
+@immutable
 class PubspecGeneratorImpl extends PubspecGenerator
     with
         SourceGeneratorMixin,
@@ -39,7 +41,5 @@ class PubspecGeneratorImpl extends PubspecGenerator
         TypedefGeneratorMixin,
         HeaderGeneratorMixin,
         IgnoreGeneratorMixin {
-  /// {@nodoc}
-  /// @literal
-  const PubspecGeneratorImpl() : super();
+  const PubspecGeneratorImpl({required super.config});
 }

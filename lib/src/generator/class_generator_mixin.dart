@@ -1,15 +1,17 @@
 // ignore_for_file: unnecessary_raw_strings
 
+import 'package:meta/meta.dart';
 import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
 
-/// {@nodoc}
+@internal
+@immutable
 mixin ClassGeneratorMixin on PubspecGenerator {
   @override
   Iterable<String> generate(Map<String, Object> pubspec) sync* {
     yield _$classDescription;
     yield 'sealed class Pubspec {';
     yield* super.generate(pubspec).map<String>(_padding);
-    yield '}';
+    yield '}\n';
   }
 
   String _padding(String text) => text

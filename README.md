@@ -20,6 +20,16 @@ Pubspec Generator is a Dart library that auto-generates a class containing the i
 
 **Continually updated:** The generated class updates as your pubspec.yaml changes, so your application's metadata remains current at all times.
 
+## Command line utility
+
+You can use the command line utility to generate a `pubspec.dart` file from a `pubspec.yaml` file.
+This is useful for quickly generating the Dart class without needing to set up a full build environment.
+
+```sh
+dart pub global activate pubspec_generator
+dart pub global run pubspec_generator:generate --input pubspec.yaml --output lib/src/pubspec.yaml.g.dart
+```
+
 ## Installation
 
 First, add pubspec_info_codegen to your `pubspec.yaml`:

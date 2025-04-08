@@ -1,11 +1,15 @@
-/// {@nodoc}
-/// @immutable
+import 'package:meta/meta.dart';
+import 'package:pubspec_generator/src/pubspec_builder_config.dart';
+
+@internal
+@immutable
 // ignore: one_member_abstracts
 abstract class PubspecGenerator {
-  /// {@nodoc}
-  const PubspecGenerator();
+  const PubspecGenerator({required this.config});
 
-  /// {@nodoc}
+  /// Configuration for builder
+  final PubspecBuilderConfig config;
+
   /// @mustCallSuper
   Iterable<String> generate(Map<String, Object> pubspec) sync* {}
 }

@@ -4,7 +4,7 @@ description: >
   Code generator pubspec.yaml.g.dart from pubspec.yaml.
   Just import `pubspec_generator` and then run `dart run build_runner build`
 
-version: 4.0.0
+version: 4.2.0
 
 repository: https://github.com/PlugFox/pubspec_generator/tree/master
 
@@ -32,7 +32,7 @@ topics:
   - version
 
 screenshots:
-  - description: 'Generated version record'
+  - description: "Generated version record"
     path: version.png
 
 # This package supports all platforms listed below.
@@ -44,14 +44,22 @@ platforms:
   web:
   windows:
 
+# dart pub global activate --source path .
+# dart run pubspec_generator:generate
+executables:
+  generate: generate
+
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   analyzer: ^6.0.0
   build: ^2.3.1
   pub_semver: ^2.1.4
   yaml: ^3.1.2
+  args: ^2.7.0
+  meta: ^1.16.0
+  path: ^1.9.1
 
 dev_dependencies:
   lints: ^2.0.1
