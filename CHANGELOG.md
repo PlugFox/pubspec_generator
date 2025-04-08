@@ -1,3 +1,7 @@
+## 4.2.2
+
+- **FIXED**: Ignore formatting and coverage for generated file.
+
 ## 4.2.1
 
 - **FIXED**: Exclude `library` and `<>` symbols from the generated code.
