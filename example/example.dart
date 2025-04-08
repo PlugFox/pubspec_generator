@@ -2,9 +2,8 @@
 // ignore_for_file: use_raw_strings, avoid_classes_with_only_static_members
 // ignore_for_file: avoid_escaping_inner_quotes, prefer_single_quotes
 
-/// GENERATED CODE - DO NOT MODIFY BY HAND
-
-library pubspec;
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // *****************************************************************************
 // *                             pubspec_generator                             *
@@ -93,13 +92,13 @@ sealed class Pubspec {
   static const PubspecVersion version = (
     /// Non-canonical string representation of the version as provided
     /// in the pubspec.yaml file.
-    representation: r'4.2.0',
+    representation: r'4.2.1',
 
     /// Returns a 'canonicalized' representation
     /// of the application version.
     /// This represents the version string in accordance with
     /// Semantic Versioning (SemVer) standards.
-    canonical: r'4.2.0',
+    canonical: r'4.2.1',
 
     /// MAJOR version when you make incompatible API changes.
     /// The major version number: 1 in "1.2.3".
@@ -112,7 +111,7 @@ sealed class Pubspec {
 
     /// PATCH version when you make backward compatible bug fixes.
     /// The patch version number: 3 in "1.2.3".
-    patch: 0,
+    patch: 1,
 
     /// The pre-release identifier: "foo" in "1.2.3-foo".
     preRelease: <String>[],
@@ -127,10 +126,10 @@ sealed class Pubspec {
     4,
     8,
     17,
-    5,
-    45,
-    908,
-    152,
+    37,
+    56,
+    158,
+    512,
   );
 
   /// Name
@@ -186,7 +185,7 @@ sealed class Pubspec {
   /// Repository
   /// The optional repository field should contain the URL for your package’s
   /// source code repository—for example,
-  /// https://github.com/<user>/<repository>.
+  /// https://github.com/user/repository
   /// If you publish your package to the pub.dev site,
   /// then your package’s page displays the repository URL.
   /// While providing a repository is optional,
@@ -204,7 +203,7 @@ sealed class Pubspec {
   /// to each package’s issue tracker, using the value of this field.
   /// If issue_tracker is missing but repository is present and points to GitHub,
   /// then the pub.dev site uses the default issue tracker
-  /// (https://github.com/<user>/<repository>/issues).
+  /// https://github.com/user/repository/issues
   static const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
 
   /// Documentation

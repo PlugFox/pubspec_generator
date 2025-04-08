@@ -14,9 +14,8 @@ mixin HeaderGeneratorMixin on PubspecGenerator {
 }
 
 final String _mitLicense = '''
-/// GENERATED CODE - DO NOT MODIFY BY HAND
-
-library pubspec;
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// dart format width=80
 
 // *****************************************************************************
 // *                             pubspec_generator                             *

@@ -111,7 +111,7 @@ const String _$repositoryDescription = r'''
 /// Repository
 /// The optional repository field should contain the URL for your package’s
 /// source code repository—for example,
-/// https://github.com/<user>/<repository>.
+/// https://github.com/user/repository
 /// If you publish your package to the pub.dev site,
 /// then your package’s page displays the repository URL.
 /// While providing a repository is optional,
@@ -129,7 +129,7 @@ const String _$issueTrackerDescription = r'''
 /// to each package’s issue tracker, using the value of this field.
 /// If issue_tracker is missing but repository is present and points to GitHub,
 /// then the pub.dev site uses the default issue tracker
-/// (https://github.com/<user>/<repository>/issues).''';
+/// https://github.com/user/repository/issues''';
 
 const String _$documentationDescription = r'''
 /// Documentation

@@ -1,3 +1,7 @@
+## 4.2.1
+
+- **FIXED**: Exclude `library` and `<>` symbols from the generated code.
+
 ## 4.2.0
 
 - **ADDED**: Command line utility to generate pubspec.dart from a pubspec.yaml file.

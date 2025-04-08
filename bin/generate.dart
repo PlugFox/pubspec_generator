@@ -17,7 +17,7 @@ final $err = io.stderr.writeln; // Log to stderr
 ///
 /// Example usage:
 /// ```sh
-/// dart run generate.dart --input pubspec.yaml --output example/example.dart
+/// dart run bin/generate.dart --input pubspec.yaml --output example/example.dart
 /// ```
 ///
 /// or
