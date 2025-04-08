@@ -1,10 +1,11 @@
+import 'package:meta/meta.dart';
 import 'package:pubspec_generator/src/parser/pubspec_parser.dart';
 import 'package:yaml/yaml.dart';
 
-/// {@nodoc}
+@internal
+@immutable
 class PubspecParserImpl extends PubspecParser {
-  /// {@nodoc}
-  /// @literal
+  @literal
   const PubspecParserImpl() : super();
 
   @override

@@ -3,10 +3,12 @@
 import 'dart:async';
 
 import 'package:build/build.dart';
-
+import 'package:meta/meta.dart';
 import 'package:pubspec_generator/src/pubspec_builder.dart';
 
-/// {@nodoc}
+/// Pubspec builder mixin
+@internal
+@immutable
 mixin PubspecBuilderMixin on PubspecBuilder {
   @override
   FutureOr<void> build(BuildStep buildStep) async {

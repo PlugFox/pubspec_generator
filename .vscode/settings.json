@@ -5,7 +5,9 @@
     "editor.suggestSelection": "first",
     "editor.tabCompletion": "onlySnippets",
     "editor.wordBasedSuggestions": false,
-    "editor.rulers": [80],
+    "editor.rulers": [
+      80
+    ],
     "editor.defaultFormatter": "Dart-Code.dart-code",
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
@@ -13,7 +15,10 @@
     "editor.insertSpaces": true
   },
   "dart.lineLength": 80,
-  "dart.doNotFormat": ["**.g.dart", "**.mocks.dart"],
+  "dart.doNotFormat": [
+    "**.g.dart",
+    "**.mocks.dart"
+  ],
   "search.exclude": {
     ".dart_tool": true,
     "coverage": true,

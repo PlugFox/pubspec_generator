@@ -1,9 +1,11 @@
 // ignore_for_file: avoid_escaping_inner_quotes, avoid_annotating_with_dynamic
 // ignore_for_file: unnecessary_raw_strings
 
+import 'package:meta/meta.dart';
 import 'package:pubspec_generator/src/generator/pubspec_generator.dart';
 
-/// {@nodoc}
+@internal
+@immutable
 mixin TypedefGeneratorMixin on PubspecGenerator {
   @override
   Iterable<String> generate(Map<String, Object> pubspec) sync* {

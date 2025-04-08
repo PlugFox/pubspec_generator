@@ -1,3 +1,7 @@
+## 4.2.0
+
+- **ADDED**: Command line utility to generate pubspec.dart from a pubspec.yaml file.
+
 ## 4.1.0-pre.1 - 2023-10-24
 
 # Added

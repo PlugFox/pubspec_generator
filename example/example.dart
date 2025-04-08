@@ -14,7 +14,7 @@ library pubspec;
 
   MIT License
 
-  Copyright (c) 2023 Plague Fox
+  Copyright (c) 2025 Plague Fox
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -93,13 +93,13 @@ sealed class Pubspec {
   static const PubspecVersion version = (
     /// Non-canonical string representation of the version as provided
     /// in the pubspec.yaml file.
-    representation: r'4.1.0-pre.1',
+    representation: r'4.2.0',
 
     /// Returns a 'canonicalized' representation
     /// of the application version.
     /// This represents the version string in accordance with
     /// Semantic Versioning (SemVer) standards.
-    canonical: r'4.1.0-pre.1',
+    canonical: r'4.2.0',
 
     /// MAJOR version when you make incompatible API changes.
     /// The major version number: 1 in "1.2.3".
@@ -108,14 +108,14 @@ sealed class Pubspec {
     /// MINOR version when you add functionality
     /// in a backward compatible manner.
     /// The minor version number: 2 in "1.2.3".
-    minor: 1,
+    minor: 2,
 
     /// PATCH version when you make backward compatible bug fixes.
     /// The patch version number: 3 in "1.2.3".
     patch: 0,
 
     /// The pre-release identifier: "foo" in "1.2.3-foo".
-    preRelease: <String>[r'pre', r'1'],
+    preRelease: <String>[],
 
     /// The build identifier: "foo" in "1.2.3+foo".
     build: <String>[],
@@ -123,14 +123,14 @@ sealed class Pubspec {
 
   /// Build date and time (UTC)
   static final DateTime timestamp = DateTime.utc(
-    2023,
-    10,
-    24,
-    16,
+    2025,
+    4,
+    8,
+    17,
+    5,
     45,
-    28,
-    717,
-    914,
+    908,
+    152,
   );
 
   /// Name
@@ -165,8 +165,7 @@ sealed class Pubspec {
   /// Think of the description as the sales pitch for your package.
   /// Users see it when they [browse for packages](https://pub.dev/packages).
   /// The description is plain text: no markdown or HTML.
-  static const String description =
-      r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
+  static const String description = r'Code generator pubspec.yaml.g.dart from pubspec.yaml. Just import `pubspec_generator` and then run `dart run build_runner build`';
 
   /// Homepage
   ///
@@ -178,8 +177,7 @@ sealed class Pubspec {
   /// While providing a homepage is optional,
   /// please provide it or repository (or both).
   /// It helps users understand where your package is coming from.
-  static const String homepage =
-      r'https://github.com/PlugFox/pubspec_generator';
+  static const String homepage = r'https://github.com/PlugFox/pubspec_generator';
 
   /// Repository
   ///
@@ -194,8 +192,7 @@ sealed class Pubspec {
   /// While providing a repository is optional,
   /// please provide it or homepage (or both).
   /// It helps users understand where your package is coming from.
-  static const String repository =
-      r'https://github.com/PlugFox/pubspec_generator/tree/master';
+  static const String repository = r'https://github.com/PlugFox/pubspec_generator/tree/master';
 
   /// Issue tracker
   ///
@@ -208,8 +205,7 @@ sealed class Pubspec {
   /// If issue_tracker is missing but repository is present and points to GitHub,
   /// then the pub.dev site uses the default issue tracker
   /// (https://github.com/<user>/<repository>/issues).
-  static const String issueTracker =
-      r'https://github.com/PlugFox/pubspec_generator/issues';
+  static const String issueTracker = r'https://github.com/PlugFox/pubspec_generator/issues';
 
   /// Documentation
   ///
@@ -435,6 +431,9 @@ sealed class Pubspec {
     'build': r'^2.3.1',
     'pub_semver': r'^2.1.4',
     'yaml': r'^3.1.2',
+    'args': r'^2.7.0',
+    'meta': r'^1.16.0',
+    'path': r'^1.9.1',
   };
 
   /// Developer dependencies
@@ -477,7 +476,9 @@ sealed class Pubspec {
   /// If you don’t specify the value, it is inferred from the key.
   ///
   /// For more information, see pub global.
-  static const Map<String, Object> executables = <String, Object>{};
+  static const Map<String, Object> executables = <String, Object>{
+    'generate': r'generate',
+  };
 
   /// Source data from pubspec.yaml
   static const Map<String, Object> source = <String, Object>{
@@ -498,5 +499,9 @@ sealed class Pubspec {
     'dependencies': dependencies,
     'dev_dependencies': devDependencies,
     'dependency_overrides': dependencyOverrides,
+    'executables': <String, Object>{
+      'generate': r'generate',
+    },
   };
+
 }
