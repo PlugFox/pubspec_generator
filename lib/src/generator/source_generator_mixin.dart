@@ -8,13 +8,13 @@ import 'package:pubspec_generator/src/generator/representation.dart';
 @immutable
 mixin SourceGeneratorMixin on PubspecGenerator {
   @override
-  Iterable<String> generate(Map<String, Object> data) sync* {
+  Iterable<String> generate(Map<String, Object> pubspec) sync* {
     final buffer = StringBuffer()
       ..writeln('/// Source data from pubspec.yaml')
       ..writeln('static const Map<String, Object> source = <String, Object>{');
 
     void refToValue(String key, String value) {
-      data.remove(key);
+      pubspec.remove(key);
       buffer
         ..write('  \'')
         ..write(key)
@@ -40,8 +40,8 @@ mixin SourceGeneratorMixin on PubspecGenerator {
     refToValue('dependencies', 'dependencies');
     refToValue('dev_dependencies', 'devDependencies');
     refToValue('dependency_overrides', 'dependencyOverrides');
-    if (data.isNotEmpty) {
-      for (final entry in data.entries) {
+    if (pubspec.isNotEmpty) {
+      for (final entry in pubspec.entries) {
         buffer
           ..write('  \'')
           ..write(entry.key)
@@ -56,6 +56,6 @@ mixin SourceGeneratorMixin on PubspecGenerator {
     }
     buffer.writeln('};');
     yield buffer.toString();
-    yield* super.generate(data);
+    yield* super.generate(pubspec);
   }
 }
