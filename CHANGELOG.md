@@ -1,3 +1,7 @@
+## 4.2.3
+
+- **FIXED**: Removed unused dependency on package `analyzer`.
+
 ## 4.2.2
 
 - **FIXED**: Ignore formatting and coverage for generated file.
