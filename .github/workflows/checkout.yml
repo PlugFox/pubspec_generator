@@ -46,7 +46,7 @@ jobs:
       - name: 🚂 Setup Dart and dependencies
         uses: ./.github/actions/setup
         with:
-          dart-version: 3.7.0
+          dart-version: stable
 
       - name: 🚦 Check code format
         id: check-format
