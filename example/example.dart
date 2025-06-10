@@ -94,13 +94,13 @@ sealed class Pubspec {
   static const PubspecVersion version = (
     /// Non-canonical string representation of the version as provided
     /// in the pubspec.yaml file.
-    representation: r'4.2.2',
+    representation: r'4.3.0',
 
     /// Returns a 'canonicalized' representation
     /// of the application version.
     /// This represents the version string in accordance with
     /// Semantic Versioning (SemVer) standards.
-    canonical: r'4.2.2',
+    canonical: r'4.3.0',
 
     /// MAJOR version when you make incompatible API changes.
     /// The major version number: 1 in "1.2.3".
@@ -109,11 +109,11 @@ sealed class Pubspec {
     /// MINOR version when you add functionality
     /// in a backward compatible manner.
     /// The minor version number: 2 in "1.2.3".
-    minor: 2,
+    minor: 3,
 
     /// PATCH version when you make backward compatible bug fixes.
     /// The patch version number: 3 in "1.2.3".
-    patch: 2,
+    patch: 0,
 
     /// The pre-release identifier: "foo" in "1.2.3-foo".
     preRelease: <String>[],
@@ -125,13 +125,13 @@ sealed class Pubspec {
   /// Build date and time (UTC)
   static final DateTime timestamp = DateTime.utc(
     2025,
-    4,
-    8,
-    17,
-    47,
-    54,
-    142,
-    63,
+    6,
+    10,
+    13,
+    42,
+    44,
+    151,
+    414,
   );
 
   /// Name
@@ -428,7 +428,7 @@ sealed class Pubspec {
   /// For more information,
   /// see [Package dependencies](https://dart.dev/tools/pub/dependencies).
   static const Map<String, Object> dependencies = <String, Object>{
-    'analyzer': r'^6.0.0',
+    'analyzer': r'>=6.0.0 <8.0.0',
     'build': r'^2.3.1',
     'pub_semver': r'^2.1.4',
     'yaml': r'^3.1.2',
@@ -439,9 +439,9 @@ sealed class Pubspec {
 
   /// Developer dependencies
   static const Map<String, Object> devDependencies = <String, Object>{
-    'lints': r'^2.0.1',
+    'lints': r'>=2.0.1 <7.0.0',
     'build_runner': r'^2.3.3',
-    'build_runner_core': r'^7.2.10',
+    'build_runner_core': r'>=7.2.10 <9.0.0',
     'build_test': r'^2.1.5',
     'test': r'^1.21.0',
   };
@@ -479,6 +479,7 @@ sealed class Pubspec {
   /// For more information, see pub global.
   static const Map<String, Object> executables = <String, Object>{
     'generate': r'generate',
+    'pubspec_generator': r'generate',
   };
 
   /// Source data from pubspec.yaml
@@ -502,6 +503,7 @@ sealed class Pubspec {
     'dependency_overrides': dependencyOverrides,
     'executables': <String, Object>{
       'generate': r'generate',
+      'pubspec_generator': r'generate',
     },
   };
 

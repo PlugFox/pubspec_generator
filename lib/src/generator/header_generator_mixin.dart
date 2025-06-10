@@ -13,21 +13,19 @@ mixin HeaderGeneratorMixin on PubspecGenerator {
   }
 }
 
-final String _mitLicense = '''
+const String _mitLicense = '''
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // dart format width=80
 // dart format off
 // coverage:ignore-file
 
 // *****************************************************************************
-// *                             pubspec_generator                             *
+// *                https://pub.dev/packages/pubspec_generator                 *
 // *****************************************************************************
 
 /*
 
   MIT License
-
-  Copyright (c) ${DateTime.now().toUtc().year.clamp(2023, 9999)} Plague Fox
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal

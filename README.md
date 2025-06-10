@@ -30,6 +30,8 @@ dart pub global activate pubspec_generator
 dart pub global run pubspec_generator:generate --input pubspec.yaml --output lib/src/pubspec.yaml.g.dart
 ```
 
+Better to prefer this approach for quick generation over the fully fledged build runner setup.
+
 ## Installation
 
 First, add pubspec_info_codegen to your `pubspec.yaml`:

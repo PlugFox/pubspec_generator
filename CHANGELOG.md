@@ -1,3 +1,7 @@
+## 4.3.0
+
+- **Changed**: Updated analyzer compatibility with Flutter 3.32.0
+
 ## 4.2.3
 
 - **FIXED**: Removed unused dependency on package `analyzer`.

@@ -6,7 +6,7 @@ import 'package:build_runner/build_runner.dart' as runner;
 import 'package:build_runner_core/build_runner_core.dart' as core;
 import 'package:pubspec_generator/builder.dart' as generator;
 
-void main(List<String> args) => runZoned(
+void main(List<String> args) => runZoned<void>(
       () async {
         final result = await runner.run(
           <String>{
