@@ -6,6 +6,19 @@ on:
     branches:
       - "main"
       - "master"
+    tags:
+      - "[0-9]+.[0-9]+.[0-9]+"
+      - "[0-9]+.[0-9]+.[0-9]+-alpha"
+      - "[0-9]+.[0-9]+.[0-9]+-beta"
+      - "[0-9]+.[0-9]+.[0-9]+-rc"
+      - "[0-9]+.[0-9]+.[0-9]+-dev"
+      - "[0-9]+.[0-9]+.[0-9]+-preview"
+      - "[0-9]+.[0-9]+.[0-9]+-beta"
+      - "[0-9]+.[0-9]+.[0-9]+-stage"
+      - "[0-9]+.[0-9]+.[0-9]+-staging"
+      - "[0-9]+.[0-9]+.[0-9]+-live"
+      - "[0-9]+.[0-9]+.[0-9]+-prod"
+      - "[0-9]+.[0-9]+.[0-9]+-production"
   pull_request:
     branches:
       - "main"
@@ -25,6 +38,11 @@ on:
       - "test/**.dart"
       - "example/**.dart"
 
+permissions:
+  contents: read
+  actions: read
+  checks: write
+
 jobs:
   checkout:
     name: "🧪 Check code with analysis, format, and tests"
@@ -35,6 +53,12 @@ jobs:
       run:
         working-directory: ./
     timeout-minutes: 10
+    concurrency:
+      group: checkout-${{ github.workflow }}-${{ github.ref_name }}
+      cancel-in-progress: true
+    permissions:
+      contents: read
+
     steps:
       - name: 📦 Get the .github actions
         uses: actions/checkout@v4
