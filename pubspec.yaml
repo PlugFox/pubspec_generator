@@ -65,6 +65,6 @@ dependencies:
 dev_dependencies:
   lints: ">=2.0.1 <7.0.0"
   build_runner: ^2.3.3
-  build_runner_core: ">=7.2.10 <9.0.0"
+  build_runner_core: ">=7.2.10 <10.0.0"
   build_test: ^2.1.5
   test: ^1.21.0
