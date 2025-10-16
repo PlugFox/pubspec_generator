@@ -64,6 +64,5 @@ dependencies:
 
 dev_dependencies:
   lints: any
-  build_runner: any
-  build_test: any
   test: any
+  build_test: any

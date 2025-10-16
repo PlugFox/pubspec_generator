@@ -4,8 +4,9 @@
         {
             "name": "Example",
             "request": "launch",
-            "type": "dart",
-            "program": "tool/runner.dart",
+            "type": "node",
+            "program": "dart pub global run pubspec_generator:generate -o example/example.dart",
+            "preLaunchTask": "dart:pub:global:activate"
         }
     ]
 }

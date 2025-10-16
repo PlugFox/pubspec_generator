@@ -1,7 +1,8 @@
 .PHONY: format get test publish deploy server-up server-down coverage analyze check pana
 
 build:
-	@dart run tool/runner.dart
+	@dart pub global activate --source path .
+	@dart pub global run pubspec_generator:generate -o example/example.dart
 	@dart format -l 80 --fix .
 
 format:

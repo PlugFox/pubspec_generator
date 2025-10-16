@@ -1,4 +1,4 @@
-import 'dart:async';
+/* import 'dart:async';
 import 'dart:io' as io;
 
 import 'package:build/build.dart' as build;
@@ -35,3 +35,4 @@ void main(List<String> args) => runZoned<void>(
         io.exitCode = result;
       },
     ); // ignore: avoid_print
+ */
