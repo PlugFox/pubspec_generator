@@ -25,7 +25,7 @@ mixin EnvironmentGeneratorMixin on PubspecGenerator {
       if (flutter is String) {
         buffer
           ..write('  \'flutter\': \'')
-          ..write(sdk)
+          ..write(flutter)
           ..writeln('\',');
       }
     }

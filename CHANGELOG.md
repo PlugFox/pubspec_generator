@@ -1,3 +1,14 @@
+## 5.0.0
+
+- **ADDED**: Cache parsed pubspec content to improve performance.
+- **CHANGED**:
+- **DEPRECATED**:
+- **REMOVED**:
+- **FIXED**: Fix generation flutter sdk version
+- **SECURITY**:
+- **REFACTOR**:
+- **DOCS**:
+
 ## 4.3.0
 
 - **Changed**: Updated analyzer compatibility with Flutter 3.32.0

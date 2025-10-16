@@ -8,13 +8,23 @@ class PubspecParserImpl extends PubspecParser {
   @literal
   const PubspecParserImpl() : super();
 
+  static final Map<String, Map<String, Object>> _cache =
+      <String, Map<String, Object>>{};
+
   @override
   Map<String, Object> parse(String source) {
+    final hash = source.hashCode.toString();
+
+    if (_cache[hash] case Map<String, Object> fromCache) {
+      return Map<String, Object>.from(fromCache);
+    }
+
     final Object? doc = loadYaml(source);
     if (doc == null || doc is! Map<Object?, Object?>) {
       throw const FormatException('This is not valid pubspec.yaml content');
     }
-    return _removeInvalidNodesFromMap(doc);
+
+    return _cache[hash] = _removeInvalidNodesFromMap(doc);
   }
 
   Map<String, Object> _removeInvalidNodesFromMap(

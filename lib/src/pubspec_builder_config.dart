@@ -5,42 +5,56 @@ import 'package:meta/meta.dart';
 @internal
 @immutable
 class PubspecBuilderConfig {
-  const PubspecBuilderConfig({
+  PubspecBuilderConfig({
     required this.output,
     required this.timestamp,
-  });
+  })  : assert(output.isNotEmpty, 'Output path cannot be empty'),
+        assert(output.endsWith('.dart'), 'Output must be a Dart file');
 
   /// Constructor from [BuilderOptions]
   PubspecBuilderConfig.fromBuilderOptions(BuilderOptions options)
-      : output = options.config['output']?.toString() ??
-            'lib/src/constants/pubspec.yaml.g.dart',
-        timestamp = switch (options.config['timestamp'] ??
-            options.config['time'] ??
-            options.config['date'] ??
-            options.config['now'] ??
-            options.config['ts'] ??
-            options.config['datetime']) {
-          String value => switch (value.trim().toLowerCase()) {
-              'false' || 'no' || 'n' || 'f' || '-' || '0' => false,
-              _ => true,
-            },
-          bool value => value,
-          int value => value > 0,
-          null => true,
-          _ => true,
-        };
+      : this(
+          output: _validateOutput(options.config['output']?.toString() ??
+              'lib/src/constants/pubspec.yaml.g.dart'),
+          timestamp: _parseTimestamp(options.config),
+        );
 
-  /// Generate timestamp in output file
+  static String _validateOutput(String output) {
+    if (output.isEmpty) {
+      throw ArgumentError('Output path cannot be empty');
+    }
+    if (!output.endsWith('.dart')) {
+      throw ArgumentError(
+          'Output must be a Dart file (.dart extension required)');
+    }
+    if (output.contains('..') || output.startsWith('/')) {
+      throw ArgumentError('Output path contains invalid characters');
+    }
+    return output;
+  }
+
+  static bool _parseTimestamp(Map<String, dynamic> config) {
+    final value = config['timestamp'] ??
+        config['time'] ??
+        config['date'] ??
+        config['now'] ??
+        config['ts'] ??
+        config['datetime'];
+
+    return switch (value) {
+      String str => !const {'false', 'no', 'n', 'f', '-', '0'}
+          .contains(str.trim().toLowerCase()),
+      bool boolean => boolean,
+      int number => number > 0,
+      null => true,
+      _ => true,
+    };
+  }
+
   final bool timestamp;
-
-  /// Output path for generated file
   final String output;
 
   @override
-  String toString() => (StringBuffer()
-        ..write('Output path: ')
-        ..writeln(output)
-        ..write('Timestamp: ')
-        ..writeln(timestamp ? 'enabled' : 'disabled'))
-      .toString();
+  String toString() =>
+      'PubspecBuilderConfig(output: $output, timestamp: $timestamp)';
 }

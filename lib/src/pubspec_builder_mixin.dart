@@ -12,58 +12,69 @@ import 'package:pubspec_generator/src/pubspec_builder.dart';
 mixin PubspecBuilderMixin on PubspecBuilder {
   @override
   FutureOr<void> build(BuildStep buildStep) async {
-    // Each `buildStep` has a single input.
     final inputId = buildStep.inputId;
 
-    // Is this a "pubscpec.yaml" asset?
-    if (inputId.path.trim().toLowerCase() != 'pubspec.yaml') {
-      const notFoundMessage = 'This asset is not "pubscpec.yaml"';
-      log.severe(notFoundMessage);
-      throw UnsupportedError(notFoundMessage);
-    } else {
-      log.info('Found "pubspec.yaml"');
-    }
-
-    // Create a new target `AssetId` based on the old one.
-    final copy = AssetId(
-      inputId.package,
-      config.output,
-    );
-
-    // Can read asset?
-    final canReadAsset = await buildStep.canRead(inputId);
-    if (!canReadAsset) {
-      final cantReadMessage = 'Can\'t read "${inputId.path}" asset';
-      log.severe(cantReadMessage);
-      throw UnsupportedError(cantReadMessage);
-    }
-
     try {
-      // Read source asset
-      final content = await buildStep
+      await _validateInput(buildStep, inputId);
+      final content = await _generateContent(buildStep, inputId);
+      await _writeOutput(buildStep, content);
+      log.fine('File \'${config.output}\' generated successfully.');
+    } on BuildException {
+      rethrow;
+    } catch (error, stackTrace) {
+      log.severe('Unexpected error during build: $error', error, stackTrace);
+      throw BuildException('Failed to generate pubspec file: $error');
+    }
+  }
+
+  Future<void> _validateInput(BuildStep buildStep, AssetId inputId) async {
+    if (inputId.path.trim().toLowerCase() != 'pubspec.yaml') {
+      throw BuildException('Expected pubspec.yaml, got ${inputId.path}');
+    }
+
+    if (!await buildStep.canRead(inputId)) {
+      throw BuildException('Cannot read ${inputId.path}');
+    }
+
+    log.info('Validated input: ${inputId.path}');
+  }
+
+  Future<String> _generateContent(BuildStep buildStep, AssetId inputId) async {
+    try {
+      return await buildStep
           .readAsString(inputId)
           .then<Map<String, Object>>(pubspecParser.parse)
           .then<Iterable<String>>(pubspecGenerator.generate)
-          .then<String>((value) => value.join('\n'));
-      // Write out the new asset.
-      await buildStep.writeAsString(copy, content);
-    } on PackageNotFoundException {
-      log.severe('Package "${inputId.package}" is not found');
-      rethrow;
-    } on AssetNotFoundException {
-      log.severe('Asset "${inputId.path}" is not found');
-      rethrow;
-    } on InvalidInputException {
-      log.severe('The "${inputId.toString()}" is an invalid input');
-      rethrow;
-    } on InvalidOutputException {
-      log.severe('The output was not valid');
-      rethrow;
-    } on FormatException {
-      log.severe('A parsing error has occurred');
-      rethrow;
+          .then<String>((lines) => lines.join('\n'));
+    } catch (error) {
+      throw BuildException('Failed to generate content: $error');
     }
-
-    log.fine('File \'${config.output}\' generated.');
   }
+
+  Future<void> _writeOutput(BuildStep buildStep, String content) async {
+    final outputId = AssetId(buildStep.inputId.package, config.output);
+    try {
+      await buildStep.writeAsString(outputId, content);
+    } catch (error) {
+      throw BuildException('Failed to write output file: $error');
+    }
+  }
+}
+
+/// {@template build_exception}
+/// Body of the template
+/// {@endtemplate}
+@internal
+@immutable
+class BuildException implements Exception {
+  /// Creates a [BuildException] with an optional error [message].
+  ///
+  /// {@macro build_exception}
+  const BuildException(this.message);
+
+  /// Error message
+  final String message;
+
+  @override
+  String toString() => 'BuildException: $message';
 }

@@ -4,20 +4,57 @@ import 'package:pubspec_generator/src/pubspec_builder.dart';
 import 'package:test/test.dart';
 
 void main() {
-  test('Code generator test', () async {
-    final srcs = Map<String, String>.from(<String, String>{
-      'a|pubspec.yaml': _$pubspec,
+  group('PubspecBuilder', () {
+    late Map<String, String> testAssets;
+
+    setUp(() {
+      testAssets = <String, String>{
+        'a|pubspec.yaml': _validPubspec,
+      };
     });
 
-    await testBuilder(
-      pubspecBuilder(
-        const BuilderOptions(
-          <String, Object?>{'output': 'lib/src/pubspec.g.dart'},
-          isRoot: true,
+    test('Code generator test', () async {
+      final srcs = Map<String, String>.from(<String, String>{
+        'a|pubspec.yaml': _$pubspec,
+      });
+
+      await testBuilder(
+        pubspecBuilder(
+          const BuilderOptions(
+            <String, Object?>{'output': 'lib/src/pubspec.g.dart'},
+            isRoot: true,
+          ),
         ),
-      ),
-      srcs,
-    );
+        srcs,
+      );
+    });
+
+    test('generates correct output structure', () async {
+      await testBuilder(
+        pubspecBuilder(const BuilderOptions({
+          'output': 'lib/src/pubspec.g.dart',
+          'timestamp': false,
+        }, isRoot: true)),
+        testAssets,
+        outputs: {
+          'a|lib/src/pubspec.g.dart':
+              decodedMatches(contains('sealed class Pubspec')),
+        },
+      );
+    });
+
+    test('respects timestamp configuration', () async {
+      await testBuilder(
+        pubspecBuilder(const BuilderOptions({
+          'timestamp': true,
+        }, isRoot: true)),
+        testAssets,
+        outputs: {
+          'a|lib/src/constants/pubspec.yaml.g.dart':
+              decodedMatches(contains('timestamp')),
+        },
+      );
+    });
   });
 }
 
@@ -66,4 +103,16 @@ platforms:
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
+''';
+
+const String _validPubspec = '''
+name: test_package
+description: A test package
+version: 1.0.0
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+dependencies:
+  meta: ^1.16.0
+dev_dependencies:
+  test: ^1.21.0
 ''';
