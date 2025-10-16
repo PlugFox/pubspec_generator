@@ -91,7 +91,14 @@ jobs:
             --platform=vm --compiler=kernel --coverage=coverage \
             --reporter=github --file-reporter=json:reports/tests.json \
             --timeout=10m --concurrency=12 --color \
-              test/pubspec_generator_test.dart
+              test/unit_test.dart
+
+      - name: 🕵🏻 Example generation
+        timeout-minutes: 5
+        run: |
+          dart pub global activate --source path .
+          dart pub global run pubspec_generator:generate -o example/example.dart
+          dart analyze --fatal-infos --fatal-warnings example/example.dart
 
       #- name: 🎁 Setup LCOV
       #  timeout-minutes: 5

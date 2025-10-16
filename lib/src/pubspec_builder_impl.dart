@@ -6,12 +6,22 @@ import 'package:pubspec_generator/src/pubspec_builder.dart';
 import 'package:pubspec_generator/src/pubspec_builder_config.dart';
 import 'package:pubspec_generator/src/pubspec_builder_mixin.dart';
 
-/// Builder
+/// Concrete implementation of the pubspec builder.
+///
+/// This class combines [PubspecBuilder] with [PubspecBuilderMixin] to
+/// provide the complete build functionality. It handles the actual build
+/// process including validation, content generation, and output writing.
+///
+/// The implementation logs configuration details during initialization
+/// for debugging and monitoring purposes.
 @internal
 @immutable
 class PubspecBuilderImpl extends PubspecBuilder with PubspecBuilderMixin {
-  /// PubspecBuilder constructor with BuilderOptions
+  /// Creates a pubspec builder implementation with the given [config].
+  ///
+  /// Logs the configuration for debugging purposes. The config
+  /// determines output file location and whether to include timestamps.
   PubspecBuilderImpl(PubspecBuilderConfig config) : super(config) {
-    log.config('Config: $config');
+    log.config('PubspecBuilder initialized with config: $config');
   }
 }

@@ -7,7 +7,7 @@
 - **FIXED**: Fix generation flutter sdk version
 - **SECURITY**:
 - **REFACTOR**:
-- **DOCS**:
+- **DOCS**: More detailed comments and documentation throughout the codebase.
 
 ## 4.3.0
 
