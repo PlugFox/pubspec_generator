@@ -14,7 +14,7 @@ get:
 	@dart pub get
 
 test: get
-	@dart test --debug --coverage=.coverage --platform vm
+	@dart test --debug --coverage=.coverage --platform vm test/unit_test.dart
 
 publish:
 	@yes | dart pub publish
@@ -22,8 +22,8 @@ publish:
 deploy: publish
 
 coverage: get
-	@dart test --concurrency=6 --platform vm --coverage=coverage test/
-	@dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.packages --report-on=lib
+	@dart test --concurrency=6 --platform vm --coverage=coverage test/unit_test.dart
+	@dart run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --report-on=lib
 #	@mv coverage/lcov.info coverage/lcov.base.info
 #	@lcov -r coverage/lcov.base.info -o coverage/lcov.base.info "lib/**.freezed.dart" "lib/**.g.dart"
 #	@mv coverage/lcov.base.info coverage/lcov.info
