@@ -1,12 +1,7 @@
 ## 5.0.0
 
 - **ADDED**: Cache parsed pubspec content to improve performance.
-- **CHANGED**:
-- **DEPRECATED**:
-- **REMOVED**:
 - **FIXED**: Fix generation flutter sdk version
-- **SECURITY**:
-- **REFACTOR**:
 - **DOCS**: More detailed comments and documentation throughout the codebase.
 
 ## 4.3.0
