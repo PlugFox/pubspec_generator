@@ -1,3 +1,7 @@
+## 5.0.1
+
+- **Changed**: Updated analyzer compatibility
+
 ## 5.0.0
 
 - **ADDED**: Cache parsed pubspec content to improve performance.
