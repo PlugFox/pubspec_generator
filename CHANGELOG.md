@@ -1,3 +1,7 @@
+## 5.0.2
+
+- **Changed**: Bumped package version to 5.0.2
+
 ## 5.0.1
 
 - **Changed**: Updated analyzer compatibility
