@@ -1,3 +1,7 @@
+## 5.0.2
+
+- **Changed**: Refreshed release metadata and generated example for version 5.0.2
+
 ## 5.0.1
 
 - **Changed**: Updated analyzer compatibility

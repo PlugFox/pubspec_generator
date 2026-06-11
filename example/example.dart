@@ -8,14 +8,12 @@
 // coverage:ignore-file
 
 // *****************************************************************************
-// *                             pubspec_generator                             *
+// *                https://pub.dev/packages/pubspec_generator                 *
 // *****************************************************************************
 
 /*
 
   MIT License
-
-  Copyright (c) 2025 Plague Fox
 
   Permission is hereby granted, free of charge, to any person obtaining a copy
   of this software and associated documentation files (the "Software"), to deal
@@ -94,26 +92,26 @@ sealed class Pubspec {
   static const PubspecVersion version = (
     /// Non-canonical string representation of the version as provided
     /// in the pubspec.yaml file.
-    representation: r'4.3.0',
+    representation: r'5.0.2',
 
     /// Returns a 'canonicalized' representation
     /// of the application version.
     /// This represents the version string in accordance with
     /// Semantic Versioning (SemVer) standards.
-    canonical: r'4.3.0',
+    canonical: r'5.0.2',
 
     /// MAJOR version when you make incompatible API changes.
     /// The major version number: 1 in "1.2.3".
-    major: 4,
+    major: 5,
 
     /// MINOR version when you add functionality
     /// in a backward compatible manner.
     /// The minor version number: 2 in "1.2.3".
-    minor: 3,
+    minor: 0,
 
     /// PATCH version when you make backward compatible bug fixes.
     /// The patch version number: 3 in "1.2.3".
-    patch: 0,
+    patch: 2,
 
     /// The pre-release identifier: "foo" in "1.2.3-foo".
     preRelease: <String>[],
@@ -124,14 +122,14 @@ sealed class Pubspec {
 
   /// Build date and time (UTC)
   static final DateTime timestamp = DateTime.utc(
-    2025,
+    2026,
     6,
+    11,
     10,
-    13,
-    42,
     44,
-    151,
-    414,
+    47,
+    399,
+    881,
   );
 
   /// Name
@@ -428,8 +426,8 @@ sealed class Pubspec {
   /// For more information,
   /// see [Package dependencies](https://dart.dev/tools/pub/dependencies).
   static const Map<String, Object> dependencies = <String, Object>{
-    'analyzer': r'>=6.0.0 <8.0.0',
-    'build': r'^2.3.1',
+    'analyzer': r'>=7.0.0 <14.0.0',
+    'build': r'^4.0.0',
     'pub_semver': r'^2.1.4',
     'yaml': r'^3.1.2',
     'args': r'^2.7.0',
@@ -439,11 +437,9 @@ sealed class Pubspec {
 
   /// Developer dependencies
   static const Map<String, Object> devDependencies = <String, Object>{
-    'lints': r'>=2.0.1 <7.0.0',
-    'build_runner': r'^2.3.3',
-    'build_runner_core': r'>=7.2.10 <9.0.0',
-    'build_test': r'^2.1.5',
-    'test': r'^1.21.0',
+    'lints': r'any',
+    'test': r'any',
+    'build_test': r'any',
   };
 
   /// Dependency overrides
